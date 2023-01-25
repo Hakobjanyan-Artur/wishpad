@@ -1,0 +1,33 @@
+@mixin font($fontName, $fontUrl) {
+    @font-face {
+        font-family: $fontName;
+        src: url($fontUrl);
+    }
+}
+
+@mixin logo($width, $height) {
+    width: $width;
+    height: $height;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    overflow: hidden;
+
+    @media(max-width:750px) {
+        width: 20%;
+        background: $wish-grey;
+    }
+}
+
+@mixin btn($width, $height) {
+    width: $width;
+    height: $height;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    font-family: 'roboto';
+    cursor: pointer;
+    background: $wish-blue;
+    color: $wish-grey;
+    box-shadow: 0 0 10px $wish-blue;
+    transition: .4s;
+}

@@ -1,2 +1,34 @@
-@import './scss/_mixin';
-@import './scss/variables';
+@import './scss/mixin';
+@import './scss/_variables';
+@import './components/signUp/signUp';
+@import './components/signIn/signIn';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    background-image: url(./images/background.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}

@@ -1,1 +1,376 @@
-/*# sourceMappingURL=App.css.map */
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.sign-up-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.sign-up-content .desctop {
+  width: 80%;
+  border: 8px solid rgb(234, 234, 234);
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0 0 20px rgb(234, 234, 234);
+}
+@media (max-width: 750px) {
+  .sign-up-content .desctop {
+    flex-direction: column;
+  }
+}
+.sign-up-content .desctop .left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(68, 121, 251);
+  gap: 30px;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+@media (max-width: 750px) {
+  .sign-up-content .desctop .left {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 30%;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+  }
+}
+.sign-up-content .desctop .left .left-header {
+  display: flex;
+  justify-content: center;
+}
+.sign-up-content .desctop .left .left-header .logo {
+  width: 70%;
+  height: 95%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  overflow: hidden;
+}
+@media (max-width: 750px) {
+  .sign-up-content .desctop .left .left-header .logo {
+    width: 20%;
+    background: rgb(248, 249, 251);
+  }
+}
+.sign-up-content .desctop .left .left-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+@media (max-width: 750px) {
+  .sign-up-content .desctop .left .left-section {
+    display: none;
+  }
+}
+.sign-up-content .desctop .left .left-section .title {
+  color: rgb(248, 249, 251);
+  font-family: "roboto";
+}
+.sign-up-content .desctop .left .left-section .name {
+  color: rgb(248, 249, 251);
+  font-family: "elsie";
+  width: 200px;
+  text-align: center;
+}
+.sign-up-content .desctop .left .left-section .about {
+  text-align: center;
+  color: rgb(248, 249, 251);
+  font-family: "roboto";
+}
+.sign-up-content .desctop .right {
+  background-color: rgb(248, 249, 251);
+  width: 70%;
+  height: 100%;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 20px;
+}
+@media (max-width: 750px) {
+  .sign-up-content .desctop .right {
+    width: 100%;
+    border-top-right-radius: 0;
+  }
+}
+.sign-up-content .desctop .right .right-title {
+  margin: 20px 0;
+  font-family: "elsie";
+  text-align: center;
+}
+.sign-up-content .desctop .right form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+@media (max-width: 550px) {
+  .sign-up-content .desctop .right form {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+}
+.sign-up-content .desctop .right form .gender-input {
+  display: flex;
+  gap: 50px;
+}
+.sign-up-content .desctop .right form .gender-input label {
+  display: flex;
+  align-items: center;
+}
+.sign-up-content .desctop .right form input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding-left: 20px;
+  font-size: 14px;
+  font-family: "roboto";
+  border: none;
+  border-radius: 10px;
+}
+.sign-up-content .desctop .right form .right-btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "roboto";
+  cursor: pointer;
+  background: rgb(68, 121, 251);
+  color: rgb(248, 249, 251);
+  box-shadow: 0 0 10px rgb(68, 121, 251);
+  transition: 0.4s;
+}
+.sign-up-content .desctop .right form .right-btn:hover {
+  color: rgb(68, 121, 251);
+  background: rgb(248, 249, 251);
+}
+.sign-up-content .desctop .right .left-btn {
+  font-size: 16px;
+  color: rgb(68, 121, 251);
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 40px;
+  font-family: "roboto";
+  font-weight: 700;
+}
+.sign-up-content .desctop .right .left-btn:hover {
+  text-decoration: underline;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.sign-in-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.sign-in-content .desctop {
+  width: 70%;
+  border: 8px solid rgb(234, 234, 234);
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0 0 20px rgb(234, 234, 234);
+}
+@media (max-width: 750px) {
+  .sign-in-content .desctop {
+    flex-direction: column;
+  }
+}
+.sign-in-content .desctop .left {
+  width: 30%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(68, 121, 251);
+  gap: 30px;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+@media (max-width: 750px) {
+  .sign-in-content .desctop .left {
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+  }
+}
+.sign-in-content .desctop .left .left-header {
+  display: flex;
+  justify-content: center;
+}
+.sign-in-content .desctop .left .left-header .logo {
+  width: 70%;
+  height: 95%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  overflow: hidden;
+}
+@media (max-width: 750px) {
+  .sign-in-content .desctop .left .left-header .logo {
+    width: 20%;
+    background: rgb(248, 249, 251);
+  }
+}
+.sign-in-content .desctop .left .left-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+@media (max-width: 750px) {
+  .sign-in-content .desctop .left .left-section {
+    display: none;
+  }
+}
+.sign-in-content .desctop .left .left-section .title {
+  color: rgb(248, 249, 251);
+  font-family: "roboto";
+}
+.sign-in-content .desctop .left .left-section .name {
+  color: rgb(248, 249, 251);
+  font-family: "elsie";
+  width: 200px;
+  text-align: center;
+}
+.sign-in-content .desctop .left .left-section .about {
+  text-align: center;
+  color: rgb(248, 249, 251);
+  font-family: "roboto";
+}
+.sign-in-content .desctop .right {
+  width: 70%;
+  background: rgb(248, 249, 251);
+}
+@media (max-width: 750px) {
+  .sign-in-content .desctop .right {
+    width: 100%;
+  }
+}
+.sign-in-content .desctop .right .right-title {
+  margin-top: 20px;
+  font-family: "elsie";
+  text-align: center;
+}
+.sign-in-content .desctop .right form {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.sign-in-content .desctop .right form input {
+  width: 400px;
+  height: 40px;
+  outline: none;
+  padding-left: 20px;
+  font-size: 14px;
+  font-family: "roboto";
+  border-radius: 10px;
+  border: none;
+}
+@media (max-width: 870px) {
+  .sign-in-content .desctop .right form input {
+    width: 350px;
+  }
+}
+@media (max-width: 540px) {
+  .sign-in-content .desctop .right form input {
+    width: 300px;
+  }
+}
+@media (max-width: 460px) {
+  .sign-in-content .desctop .right form input {
+    width: 250px;
+  }
+}
+@media (max-width: 390px) {
+  .sign-in-content .desctop .right form input {
+    width: 200px;
+  }
+}
+.sign-in-content .desctop .right form .btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.sign-in-content .desctop .right form .btns .right-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "roboto";
+  cursor: pointer;
+  background: rgb(68, 121, 251);
+  color: rgb(248, 249, 251);
+  box-shadow: 0 0 10px rgb(68, 121, 251);
+  transition: 0.4s;
+}
+.sign-in-content .desctop .right form .btns .right-btn:hover {
+  color: rgb(68, 121, 251);
+  background: rgb(248, 249, 251);
+}
+.sign-in-content .desctop .right form .btns .left-btn {
+  color: rgb(68, 121, 251);
+  cursor: pointer;
+}
+.sign-in-content .desctop .right form .btns .left-btn:hover {
+  text-decoration: underline;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-image: url(./images/background.jpg);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}/*# sourceMappingURL=App.css.map */

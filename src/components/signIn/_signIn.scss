@@ -1,0 +1,156 @@
+@include font('roboto', './fonts/Roboto-Thin.ttf');
+@include font('clash', './fonts/ClashDisplay-Medium.ttf');
+@include font('elsie', './fonts/Elsie-Regular.ttf');
+
+.sign-in-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    .desctop {
+        width: 70%;
+        border: 8px solid $wish-dark-grey;
+        border-radius: 20px;
+        display: flex;
+        box-shadow: 0 0 20px $wish-dark-grey;
+
+        @media(max-width: 750px) {
+            flex-direction: column;
+        }
+
+        .left {
+            width: 30%;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            background-color: $wish-blue;
+            gap: 30px;
+            align-items: center;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+
+            @media(max-width: 750px) {
+                width: 100%;
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 10px;
+            }
+
+            .left-header {
+                display: flex;
+                justify-content: center;
+
+                .logo {
+                    @include logo(70%, 95%);
+                }
+            }
+
+            .left-section {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+
+                @media(max-width: 750px) {
+                    display: none;
+                }
+
+                .title {
+                    color: $wish-grey;
+                    font-family: 'roboto';
+                }
+
+                .name {
+                    color: $wish-grey;
+                    font-family: 'elsie';
+                    width: 200px;
+                    text-align: center;
+                }
+
+                .about {
+                    text-align: center;
+                    color: $wish-grey;
+                    font-family: 'roboto';
+                }
+            }
+        }
+
+        .right {
+            width: 70%;
+            background: $wish-grey;
+
+            @media(max-width: 750px) {
+                width: 100%;
+            }
+
+            .right-title {
+                margin-top: 20px;
+                font-family: 'elsie';
+                text-align: center;
+            }
+
+            form {
+                margin-top: 60px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 60px;
+
+                input {
+                    width: 400px;
+                    height: 40px;
+                    outline: none;
+                    padding-left: 20px;
+                    font-size: 14px;
+                    font-family: 'roboto';
+                    border-radius: 10px;
+                    border: none;
+
+                    @media(max-width:870px) {
+                        width: 350px;
+                    }
+
+                    @media(max-width: 540px) {
+                        width: 300px;
+                    }
+
+                    @media(max-width: 460px) {
+                        width: 250px;
+                    }
+
+                    @media(max-width: 390px) {
+                        width: 200px;
+                    }
+                }
+
+                .btns {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    .right-btn {
+                        @include btn(200px, 40px);
+                    }
+
+                    .right-btn:hover {
+                        color: $wish-blue;
+                        background: $wish-grey;
+                    }
+
+                    .left-btn {
+                        color: $wish-blue;
+                        cursor: pointer;
+                    }
+
+                    .left-btn:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+    }
+}
