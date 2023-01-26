@@ -155,17 +155,81 @@
   color: rgb(68, 121, 251);
   background: rgb(248, 249, 251);
 }
+.sign-up-content .desctop .right form .password {
+  position: relative;
+}
+.sign-up-content .desctop .right form .password .password-simvols {
+  width: 150%;
+  position: absolute;
+  padding: 10px;
+  top: 100%;
+  left: 0;
+  background: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sign-up-content .desctop .right form .password .password-simvols h4 {
+  text-align: center;
+  font-family: "elsie";
+}
+.sign-up-content .desctop .right form .password .password-simvols .simvols {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sign-up-content .desctop .right form .password .password-simvols .simvols-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gray;
+  font-family: "roboto";
+}
+.sign-up-content .desctop .right form .password .password-simvols .range {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+}
+.sign-up-content .desctop .right form .password .password-simvols .symbol {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sign-up-content .desctop .right form .password .password-simvols .symbol .range-text {
+  display: flex;
+  gap: 10px;
+}
+.sign-up-content .desctop .right form .show-pass {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.sign-up-content .desctop .right form .show-pass input {
+  width: 20px;
+}
 .sign-up-content .desctop .right .left-btn {
   font-size: 16px;
   color: rgb(68, 121, 251);
   cursor: pointer;
-  display: inline-block;
+  display: block;
   margin-top: 40px;
   font-family: "roboto";
   font-weight: 700;
 }
 .sign-up-content .desctop .right .left-btn:hover {
   text-decoration: underline;
+}
+.sign-up-content .desctop .right .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sign-up-content .desctop .right .footer h3 {
+  transform: translateY(20px);
+  font-family: "elsie";
+  color: red;
 }
 
 @font-face {

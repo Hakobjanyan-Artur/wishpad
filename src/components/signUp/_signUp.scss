@@ -133,13 +133,77 @@
                     color: $wish-blue;
                     background: $wish-grey;
                 }
+
+                .password {
+                    position: relative;
+
+                    .password-simvols {
+                        width: 150%;
+                        position: absolute;
+                        padding: 10px;
+                        top: 100%;
+                        left: 0;
+                        background: $wish-dark-grey;
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        h4 {
+                            text-align: center;
+                            font-family: 'elsie';
+                        }
+
+                        .simvols {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                        }
+
+                        .simvols-content {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            color: gray;
+                            font-family: 'roboto';
+                        }
+
+                        .range {
+                            display: inline-block;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background: #000;
+                        }
+
+                        .symbol {
+                            flex-direction: column;
+                            align-items: flex-start;
+
+                            .range-text {
+                                display: flex;
+                                gap: 10px;
+                            }
+                        }
+                    }
+                }
+
+                .show-pass {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+
+                    input {
+                        width: 20px;
+                    }
+                }
             }
 
             .left-btn {
                 font-size: 16px;
                 color: $wish-blue;
                 cursor: pointer;
-                display: inline-block;
+                display: block;
                 margin-top: 40px;
                 font-family: 'roboto';
                 font-weight: 700;
@@ -147,6 +211,18 @@
 
             .left-btn:hover {
                 text-decoration: underline;
+            }
+
+            .footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h3 {
+                    transform: translateY(20px);
+                    font-family: 'elsie';
+                    color: red;
+                }
             }
         }
     }
