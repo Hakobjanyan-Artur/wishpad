@@ -109,12 +109,9 @@
 
                 .gender-input {
                     display: flex;
-                    gap: 50px;
-
-                    label {
-                        display: flex;
-                        align-items: center;
-                    }
+                    align-items: center;
+                    width: 50px;
+                    gap: 10px;
                 }
 
                 input {

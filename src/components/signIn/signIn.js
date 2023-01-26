@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
 
 function SignIn() {
+
+    const navigate = useNavigate()
+
     return (
         <div className='sign-in'>
             <div className="container">
@@ -31,7 +35,7 @@ function SignIn() {
                                 </div>
                                 <div className='btns'>
                                     <button className='right-btn'>Sign In</button>
-                                    <span className='left-btn'>Sign up</span>
+                                    <span onClick={() => navigate('signup')} className='left-btn'>Sign up</span>
                                 </div>
                             </form>
                         </div>

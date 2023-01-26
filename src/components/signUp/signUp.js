@@ -1,6 +1,24 @@
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
 
 function SignUp() {
+    const [genderinp, setGenderinp] = useState(true)
+    const navigate = useNavigate()
+    const formRef = useRef(null)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const name = formRef.current[0].value
+        const lastname = formRef.current[1].value
+        const email = formRef.current[2].value
+        const date = formRef.current[3].value
+        const password = formRef.current[4].value
+        const confirmPassword = formRef.current[5].value
+        const gender = genderinp === true ? 'Male' : 'Female'
+
+    }
+
     return (
         <div className='sign-up'>
             <div className="container">
@@ -20,7 +38,7 @@ function SignUp() {
                         </div>
                         <div className="right">
                             <h1 className='right-title'>Registration</h1>
-                            <form>
+                            <form ref={formRef} onSubmit={handleSubmit}>
                                 <div className='name'>
                                     <h5>Name</h5>
                                     <input type="text" placeholder='Enter your name' />
@@ -48,13 +66,13 @@ function SignUp() {
                                 <div className='gender'>
                                     <h5>Gender</h5>
                                     <div className='gender-input'>
-                                        <label for="gender">Man:<input type="radio" value="man" name='gender' /></label>
-                                        <label for="gender">Woman: <input type="radio" value="woman" name='gender' /></label>
+                                        Male:<input onChange={() => setGenderinp(!genderinp)} defaultChecked type="radio" value="man" name='gender' />
+                                        Female:<input onChange={() => setGenderinp(!genderinp)} type="radio" value="woman" name='gender' />
                                     </div>
                                 </div>
                                 <button className='right-btn'>Sign Up</button>
                             </form>
-                            <span className='left-btn'>Sign in</span>
+                            <span onClick={() => navigate('/')} className='left-btn'>Sign in</span>
                         </div>
                     </div>
                 </div>

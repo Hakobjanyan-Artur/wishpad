@@ -124,11 +124,9 @@
 }
 .sign-up-content .desctop .right form .gender-input {
   display: flex;
-  gap: 50px;
-}
-.sign-up-content .desctop .right form .gender-input label {
-  display: flex;
   align-items: center;
+  width: 50px;
+  gap: 10px;
 }
 .sign-up-content .desctop .right form input {
   width: 100%;
