@@ -1,11 +1,20 @@
-import { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
 import { addNewUser } from '../../store/slices/addUsers/addUsers'
+import { selectUsers } from '../../store/slices/userSlices/userSlices'
 
 
 function SignUp() {
+    const { user } = useSelector(selectUsers)
+
+    useEffect(() => {
+        if (user) {
+            navigate('/home')
+        }
+    }, [])
+
     const [genderinp, setGenderinp] = useState(true)
     const [nameErr, setNameErr] = useState(false)
     const [lastnameErr, setLastNameErr] = useState(false)

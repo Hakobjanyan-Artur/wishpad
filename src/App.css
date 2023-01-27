@@ -345,6 +345,7 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
+  padding: 20px;
 }
 .sign-in-content .desctop .right form input {
   width: 400px;
@@ -376,11 +377,33 @@
     width: 200px;
   }
 }
+.sign-in-content .desctop .right form .password {
+  display: flex;
+  flex-direction: column;
+}
+.sign-in-content .desctop .right form .check {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.sign-in-content .desctop .right form .checkbox {
+  width: 20px;
+}
+.sign-in-content .desctop .right form .error {
+  color: red;
+  font-family: "elsie";
+}
 .sign-in-content .desctop .right form .btns {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media (max-width: 540px) {
+  .sign-in-content .desctop .right form .btns {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 .sign-in-content .desctop .right form .btns .right-btn {
   width: 200px;

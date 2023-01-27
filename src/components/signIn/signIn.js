@@ -1,9 +1,42 @@
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
+import { toggleUsers } from '../../store/slices/userSlices/userSlices'
 
-function SignIn() {
-
+function SignIn({ users }) {
     const navigate = useNavigate()
+    const formRef = useRef(null)
+    const [checkbox, setCheckbox] = useState(false)
+    const [error, setError] = useState(false)
+    const dispatch = useDispatch()
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null
+
+    useEffect(() => {
+        if (currentUser) {
+            navigate('home')
+        }
+    })
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const email = formRef.current[0].value
+        const password = formRef.current[1].value
+        for (const user of users) {
+            if (user.email === email && user.password === password && !checkbox) {
+                dispatch(toggleUsers(user))
+                navigate('home')
+                break
+            } else if (user.email === email && user.password === password && checkbox) {
+                localStorage.setItem('currentUser', JSON.stringify(user))
+                navigate('home')
+            } else {
+                setError(true)
+                break
+            }
+        }
+        formRef.current.reset()
+    }
 
     return (
         <div className='sign-in'>
@@ -24,15 +57,30 @@ function SignIn() {
                         </div>
                         <div className="right">
                             <h1 className='right-title'>Authorization</h1>
-                            <form>
+                            <form ref={formRef} onSubmit={handleSubmit}>
                                 <div className='email'>
                                     <h5>Email</h5>
-                                    <input type="email" placeholder='Enter your email' />
+                                    <input
+                                        onChange={() => setError(false)}
+                                        type="email"
+                                        placeholder='Enter your email' />
                                 </div>
                                 <div className='password'>
                                     <h5>Password</h5>
-                                    <input type="password" placeholder='Password' />
+                                    <input
+                                        onChange={() => setError(false)}
+                                        type="password"
+                                        placeholder='Password' />
+                                    <div className='check'>
+                                        <input onChange={() => setCheckbox(!checkbox)} className='checkbox' type="checkbox" />
+                                        <h5>Remember me</h5>
+                                    </div>
                                 </div>
+                                <h3
+                                    style={{
+                                        display: error ? 'block' : 'none'
+                                    }}
+                                    className='error'>Wrong email or password</h3>
                                 <div className='btns'>
                                     <button className='right-btn'>Sign In</button>
                                     <span onClick={() => navigate('signup')} className='left-btn'>Sign up</span>
