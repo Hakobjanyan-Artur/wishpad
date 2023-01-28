@@ -1,10 +1,26 @@
+import userImage from '../../images/user.png'
 
+function Online({ users }) {
 
-function Online() {
+    let minutes = new Date().getMinutes()
+
+    let onlineUsers = users.filter((user) => user.min > minutes + 5 || user.min > minutes - 5)
+
     return (
-        <div className="online">
-            <h1>Online</h1>
-        </div>
+        <>
+            {onlineUsers.map((user) => (
+                <div key={user.id} className="online-users">
+                    <div className="user-image">
+                        <img src={userImage} alt="" />
+                        <div className='user-online'></div>
+                    </div>
+                    <div className='user-home-left'>
+                        <h3>{user?.name} {user?.lastname}</h3>
+                        <h5>{user?.sity} {user?.homeland}</h5>
+                    </div>
+                </div>
+            ))}
+        </>
     )
 }
 

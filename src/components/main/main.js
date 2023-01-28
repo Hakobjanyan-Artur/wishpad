@@ -6,13 +6,16 @@ import { BiSearchAlt2, BiRegistered } from 'react-icons/bi';
 import { FaRegUser, FaBirthdayCake } from 'react-icons/fa';
 import { GiSettingsKnobs } from 'react-icons/gi';
 import { MdOutlineAttachEmail } from 'react-icons/md';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, } from "react";
 import userDefaultImg from '../../images/user.png'
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import Display from "../display/display";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebasaConfig/FirebasaConfig";
 
-function Main() {
+
+function Main({ users, setOnline }) {
     const { user } = useSelector(selectUsers)
     const navigate = useNavigate()
     const leftRef = useRef(null)
@@ -30,11 +33,27 @@ function Main() {
         rightRef.current.style.display = 'none'
     }
 
+    const updateUser = async (id) => {
+        const minutes = new Date().getMinutes()
+        const userDoc = doc(db, "users", id)
+        const newFileds = { min: minutes }
+        await updateDoc(userDoc, newFileds)
+    }
+
     useEffect(() => {
+
         if (!user) {
             navigate('/')
         }
+        if (user) {
+            updateUser(user.id)
+            setInterval(() => {
+                updateUser(user.id)
+            }, 60000 * 3)
+        }
+
     }, [])
+
     return (
         <div className="main">
             <div className="container">
@@ -61,8 +80,8 @@ function Main() {
                                 <Navbar />
                             </div>
                         </div>
-                        <div className="let-display">
-                            <Display />
+                        <div className="left-display">
+                            <Display users={users} />
                         </div>
                     </div>
                     <div ref={middleRef} className="middle">

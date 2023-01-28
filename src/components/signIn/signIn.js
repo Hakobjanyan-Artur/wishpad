@@ -22,17 +22,18 @@ function SignIn({ users }) {
         e.preventDefault()
         const email = formRef.current[0].value
         const password = formRef.current[1].value
-        for (const user of users) {
-            if (user.email === email && user.password === password && !checkbox) {
+
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === email && users[i].password === password && !checkbox) {
+                const user = users[i]
                 dispatch(toggleUsers(user))
                 navigate('main')
-                break
-            } else if (user.email === email && user.password === password && checkbox) {
+            } else if (users[i].email === email && users[i].password === password && checkbox) {
+                const user = users[i]
                 localStorage.setItem('currentUser', JSON.stringify(user))
                 navigate('main')
             } else {
                 setError(true)
-                break
             }
         }
         formRef.current.reset()

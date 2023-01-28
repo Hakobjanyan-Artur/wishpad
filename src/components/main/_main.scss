@@ -99,6 +99,13 @@
             .left-navbar {
                 width: 100%;
             }
+
+            .left-display {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
         }
 
         .middle {
@@ -171,20 +178,7 @@
             }
 
             .image {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                overflow: hidden;
-                background: $wish-blue;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    width: 140px;
-                    height: 140px;
-                    border-radius: 50%;
-                }
+                @include content-image(150px, 150px, $wish-blue)
             }
 
             @media(max-width: 950px) {

@@ -524,6 +524,12 @@
 .main .main-container .left .left-navbar {
   width: 100%;
 }
+.main .main-container .left .left-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
 .main .main-container .middle {
   width: 50%;
   background: rgb(234, 234, 234);
@@ -591,15 +597,15 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  overflow: hidden;
   background: rgb(33, 92, 243);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .main .main-container .right .image img {
   width: 140px;
-  height: 140px;
+  height: height-10px;
   border-radius: 50%;
 }
 @media (max-width: 950px) {
@@ -646,6 +652,124 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.display {
+  width: 100%;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.home-users {
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+.home-users .user-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(248, 249, 251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.home-users .user-image img {
+  width: 60px;
+  height: height-10px;
+  border-radius: 50%;
+}
+.home-users .user-image .user-online {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(159, 219, 53);
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+}
+.home-users .user-home-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "roboto";
+}
+.home-users .user-home-left h3 {
+  color: rgb(248, 249, 251);
+}
+.home-users .user-home-left h5 {
+  color: rgb(234, 234, 234);
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.online-users {
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+.online-users .user-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(248, 249, 251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.online-users .user-image img {
+  width: 60px;
+  height: height-10px;
+  border-radius: 50%;
+}
+.online-users .user-image .user-online {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(159, 219, 53);
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+}
+.online-users .user-home-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "roboto";
+}
+.online-users .user-home-left h3 {
+  color: rgb(248, 249, 251);
+}
+.online-users .user-home-left h5 {
+  color: rgb(234, 234, 234);
 }
 
 * {

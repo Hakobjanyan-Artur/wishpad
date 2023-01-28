@@ -31,3 +31,20 @@
     box-shadow: 0 0 10px $wish-blue;
     transition: .4s;
 }
+
+@mixin content-image($width, $height, $bgcolor) {
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    background: $bgcolor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+        width: $width - 10px;
+        height: height - 10px;
+        border-radius: 50%;
+    }
+}
