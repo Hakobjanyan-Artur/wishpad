@@ -8,6 +8,9 @@ import { db } from './components/firebasaConfig/FirebasaConfig';
 import { useDispatch } from 'react-redux';
 import { toggleUsers } from './store/slices/userSlices/userSlices';
 import Main from './components/main/main';
+import Home from './components/home/home';
+import Friends from './components/friends/friends';
+import Display from './components/display/display';
 const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null
 
 function App() {
@@ -36,7 +39,7 @@ function App() {
       <Routes>
         <Route index element={<SignIn users={users} />} />
         <Route path='signup' element={<SignUp />} />
-        <Route path='main' element={<Main />} />
+        <Route path='main/*' element={<Main />} />
       </Routes>
     </div>
   );

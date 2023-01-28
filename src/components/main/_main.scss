@@ -15,8 +15,12 @@
         background: $wish-grey;
 
         .left {
-            width: 30%;
+            width: 25%;
             background: $wish-blue;
+
+            @media(max-width: 950px) {
+                width: 40%;
+            }
 
             .header {
                 display: flex;
@@ -92,16 +96,8 @@
                 }
             }
 
-            .navbar {
+            .left-navbar {
                 width: 100%;
-                display: flex;
-                justify-content: space-around;
-
-                .icons {
-                    font-size: 25px;
-                    cursor: pointer;
-                    color: $wish-grey;
-                }
             }
         }
 
@@ -119,12 +115,12 @@
             }
 
             @media(max-width: 950px) {
-                width: 100%;
+                width: 60%;
             }
         }
 
         .right {
-            width: 20%;
+            width: 25%;
             background: $wish-grey;
             box-shadow: -5px 0 10px rgba(182, 182, 182, 0.519);
             display: flex;
@@ -193,6 +189,26 @@
 
             @media(max-width: 950px) {
                 display: none;
+            }
+
+            .user-info {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+
+                .user-info-icons {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+
+            .media {
+                width: 80%;
+                height: 200px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     }

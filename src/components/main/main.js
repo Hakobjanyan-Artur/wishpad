@@ -2,17 +2,19 @@ import { useSelector } from "react-redux"
 import { selectUsers } from "../../store/slices/userSlices/userSlices"
 import { BsHouseDoor } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
-import { TbBrandMessenger } from 'react-icons/tb';
-import { HiOutlineStatusOnline } from 'react-icons/hi';
-import { BiSearchAlt2 } from 'react-icons/bi';
-import { FaRegUser } from 'react-icons/fa';
+import { BiSearchAlt2, BiRegistered } from 'react-icons/bi';
+import { FaRegUser, FaBirthdayCake } from 'react-icons/fa';
 import { GiSettingsKnobs } from 'react-icons/gi';
-import { useRef } from "react";
+import { MdOutlineAttachEmail } from 'react-icons/md';
+import { useEffect, useRef } from "react";
 import userDefaultImg from '../../images/user.png'
-
+import { useNavigate } from "react-router-dom";
+import Navbar from "../navbar/navbar";
+import Display from "../display/display";
 
 function Main() {
     const { user } = useSelector(selectUsers)
+    const navigate = useNavigate()
     const leftRef = useRef(null)
     const middleRef = useRef(null)
     const rightRef = useRef(null)
@@ -20,14 +22,19 @@ function Main() {
     const userClick = () => {
         leftRef.current.style.display = 'none'
         rightRef.current.style.display = 'block'
-        middleRef.current.style.width = '100%'
+        rightRef.current.style.width = '40%'
+        middleRef.current.style.width = '60%'
     }
     const mainClick = () => {
         leftRef.current.style.display = 'block'
         rightRef.current.style.display = 'none'
-        middleRef.current.style.width = '100%'
     }
 
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+    }, [])
     return (
         <div className="main">
             <div className="container">
@@ -50,17 +57,20 @@ function Main() {
                                     placeholder="Search users..."
                                     type="text" />
                             </div>
-                            <div className="navbar">
-                                <span className="icons"><BsHouseDoor /></span>
-                                <span className="icons"><FiUsers /></span>
-                                <span className="icons"><TbBrandMessenger /></span>
-                                <span className="icons"><HiOutlineStatusOnline /></span>
+                            <div className="left-navbar">
+                                <Navbar />
                             </div>
+                        </div>
+                        <div className="let-display">
+                            <Display />
                         </div>
                     </div>
                     <div ref={middleRef} className="middle">
                         <div className="header">
                             <h2>Artur Hakobjanyan</h2>
+                        </div>
+                        <div className="section">
+
                         </div>
                     </div>
                     <div ref={rightRef} className="right">
@@ -79,14 +89,31 @@ function Main() {
                             <div className="image">
                                 <img src={userDefaultImg} alt="" />
                             </div>
-                            <h3>Name</h3>
-                            <h5>Country: Arm</h5>
-                            <h5>City: Goris</h5>
+                            <h3>{user?.name} {user?.lastname}</h3>
+                            <h5>Country: {user?.homeland}</h5>
+                            <h5>City: {user?.sity}</h5>
                         </div>
                         <div className="user-info">
-
+                            <span className="friends user-info-icons">
+                                <FiUsers /> <h4>Friends: </h4> <h5>{user?.friends.length}</h5>
+                            </span>
+                            <span className="email user-info-icons">
+                                <MdOutlineAttachEmail /> <h4>Email: </h4> <h5>{user?.email}</h5>
+                            </span>
+                            <span className="birth user-info-icons">
+                                <FaBirthdayCake /> <h4>Birth-Day: </h4> <h5>{user?.dateofbirth}</h5>
+                            </span>
+                            <span className="birth user-info-icons">
+                                <BiRegistered /> <h4>Reg-Date: </h4> <h5>{user?.dateofreg}</h5>
+                            </span>
                         </div>
-                        <div className="media"></div>
+                        <div className="media">
+                            {user?.media.map((image) => (
+                                <div key={image?.id} className="user-media-image">
+                                    <img src={image?.img} alt="" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
