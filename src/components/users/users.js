@@ -1,6 +1,9 @@
+import { useDispatch } from 'react-redux'
 import userImage from '../../images/user.png'
+import { toggleId } from '../../store/slices/userSlices/userSlices'
 
-function Home({ users }) {
+function Users({ users }) {
+    const dispatch = useDispatch()
     let minutes = new Date().getMinutes()
     setInterval(() => {
         minutes = new Date().getMinutes()
@@ -9,7 +12,10 @@ function Home({ users }) {
     return (
         <>
             {users?.map((user) => (
-                <div key={user?.id} className="home-users">
+                <div
+                    onClick={() => dispatch(toggleId(user.id))}
+                    key={user?.id}
+                    className="home-users">
                     <div className="user-image">
                         <div
                             style={{
@@ -28,4 +34,4 @@ function Home({ users }) {
     )
 }
 
-export default Home
+export default Users

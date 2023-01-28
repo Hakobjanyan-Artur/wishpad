@@ -5,8 +5,9 @@
 @import './components/main/_main';
 @import './components/navbar/navbar';
 @import './components/display/display';
-@import './components/home/home';
+@import './components/users/users';
 @import './components/online/_online';
+@import './components/currentUser/currentUser';
 
 * {
     margin: 0;
