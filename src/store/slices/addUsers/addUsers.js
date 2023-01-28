@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { db } from "../../../components/firebasaConfig/FirebasaConfig";
 import { addDoc, collection } from "firebase/firestore"
-
+const usersRef = collection(db, "users")
 
 const addUsers = createSlice({
     name: 'addusers',
     initialState: {},
     reducers: {
         addNewUser(state, { payload }) {
-            const usersRef = collection(db, "users")
             state = { ...payload }
 
             addDoc(usersRef, state)

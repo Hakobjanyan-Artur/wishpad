@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './components/home/home';
 import SignIn from './components/signIn/signIn';
 import SignUp from './components/signUp/signUp';
 import { collection, onSnapshot } from 'firebase/firestore'
 import { db } from './components/firebasaConfig/FirebasaConfig';
 import { useDispatch } from 'react-redux';
 import { toggleUsers } from './store/slices/userSlices/userSlices';
+import Main from './components/main/main';
 const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       <Routes>
         <Route index element={<SignIn users={users} />} />
         <Route path='signup' element={<SignUp />} />
-        <Route path='home' element={<Home />} />
+        <Route path='main' element={<Main />} />
       </Routes>
     </div>
   );

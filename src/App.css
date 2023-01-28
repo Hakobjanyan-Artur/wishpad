@@ -32,7 +32,7 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(68, 121, 251);
+  background-color: rgb(33, 92, 243);
   gap: 30px;
   align-items: center;
   border-bottom-left-radius: 10px;
@@ -146,13 +146,13 @@
   font-size: 18px;
   font-family: "roboto";
   cursor: pointer;
-  background: rgb(68, 121, 251);
+  background: rgb(33, 92, 243);
   color: rgb(248, 249, 251);
-  box-shadow: 0 0 10px rgb(68, 121, 251);
+  box-shadow: 0 0 10px rgb(33, 92, 243);
   transition: 0.4s;
 }
 .sign-up-content .desctop .right form .right-btn:hover {
-  color: rgb(68, 121, 251);
+  color: rgb(33, 92, 243);
   background: rgb(248, 249, 251);
 }
 .sign-up-content .desctop .right form .password {
@@ -211,7 +211,7 @@
 }
 .sign-up-content .desctop .right .left-btn {
   font-size: 16px;
-  color: rgb(68, 121, 251);
+  color: rgb(33, 92, 243);
   cursor: pointer;
   display: block;
   margin-top: 40px;
@@ -267,7 +267,7 @@
   padding: 20px 0;
   display: flex;
   flex-direction: column;
-  background-color: rgb(68, 121, 251);
+  background-color: rgb(33, 92, 243);
   gap: 30px;
   align-items: center;
   border-bottom-left-radius: 10px;
@@ -413,21 +413,201 @@
   font-size: 18px;
   font-family: "roboto";
   cursor: pointer;
-  background: rgb(68, 121, 251);
+  background: rgb(33, 92, 243);
   color: rgb(248, 249, 251);
-  box-shadow: 0 0 10px rgb(68, 121, 251);
+  box-shadow: 0 0 10px rgb(33, 92, 243);
   transition: 0.4s;
 }
 .sign-in-content .desctop .right form .btns .right-btn:hover {
-  color: rgb(68, 121, 251);
+  color: rgb(33, 92, 243);
   background: rgb(248, 249, 251);
 }
 .sign-in-content .desctop .right form .btns .left-btn {
-  color: rgb(68, 121, 251);
+  color: rgb(33, 92, 243);
   cursor: pointer;
 }
 .sign-in-content .desctop .right form .btns .left-btn:hover {
   text-decoration: underline;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.main {
+  min-height: 100vh;
+  padding-top: 50px;
+}
+.main .main-container {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgb(248, 249, 251);
+}
+.main .main-container .left {
+  width: 30%;
+  background: rgb(33, 92, 243);
+}
+.main .main-container .left .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  position: relative;
+}
+.main .main-container .left .header .user-icon {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  font-size: 18px;
+  color: rgb(248, 249, 251);
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 950px) {
+  .main .main-container .left .header .user-icon {
+    display: block;
+  }
+}
+.main .main-container .left .header .title {
+  color: rgb(248, 249, 251);
+  text-align: center;
+  font-family: "elsie";
+}
+.main .main-container .left .header .search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.main .main-container .left .header .search-icon {
+  font-size: 18px;
+  color: rgb(248, 249, 251);
+  display: inline-block;
+  transform: translate(30px, 3px);
+}
+.main .main-container .left .header .search input {
+  width: 85%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(72, 137, 242, 0.507);
+  padding-left: 40px;
+  font-size: 14px;
+  font-family: "roboto";
+  color: rgb(248, 249, 251);
+}
+.main .main-container .left .header .search input::-moz-placeholder {
+  color: rgb(248, 249, 251);
+}
+.main .main-container .left .header .search input:-ms-input-placeholder {
+  color: rgb(248, 249, 251);
+}
+.main .main-container .left .header .search input::placeholder {
+  color: rgb(248, 249, 251);
+}
+.main .main-container .left .navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.main .main-container .left .navbar .icons {
+  font-size: 25px;
+  cursor: pointer;
+  color: rgb(248, 249, 251);
+}
+.main .main-container .middle {
+  width: 50%;
+  background: rgb(234, 234, 234);
+}
+.main .main-container .middle .header {
+  box-shadow: 0 5px 10px rgba(182, 182, 182, 0.519);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  font-family: "roboto";
+}
+@media (max-width: 950px) {
+  .main .main-container .middle {
+    width: 100%;
+  }
+}
+.main .main-container .right {
+  width: 20%;
+  background: rgb(248, 249, 251);
+  box-shadow: -5px 0 10px rgba(182, 182, 182, 0.519);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.main .main-container .right .main-icon {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 950px) {
+  .main .main-container .right .main-icon {
+    display: block;
+  }
+}
+.main .main-container .right .settings {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+.main .main-container .right .settings .setting {
+  font-size: 18px;
+  cursor: pointer;
+}
+.main .main-container .right .user-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.main .main-container .right .user-image h3 {
+  font-family: "elsie";
+}
+.main .main-container .right .user-image h5 {
+  font-family: "roboto";
+}
+.main .main-container .right .image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .main-container .right .image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+@media (max-width: 950px) {
+  .main .main-container .right {
+    display: none;
+  }
 }
 
 * {

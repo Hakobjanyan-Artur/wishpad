@@ -14,7 +14,7 @@ function SignIn({ users }) {
 
     useEffect(() => {
         if (currentUser) {
-            navigate('home')
+            navigate('main')
         }
     })
 
@@ -25,11 +25,11 @@ function SignIn({ users }) {
         for (const user of users) {
             if (user.email === email && user.password === password && !checkbox) {
                 dispatch(toggleUsers(user))
-                navigate('home')
+                navigate('main')
                 break
             } else if (user.email === email && user.password === password && checkbox) {
                 localStorage.setItem('currentUser', JSON.stringify(user))
-                navigate('home')
+                navigate('main')
             } else {
                 setError(true)
                 break
