@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux"
-import { selectUsers } from "../../store/slices/userSlices/userSlices"
+import { useDispatch, useSelector } from "react-redux"
+import { selectUsers, toggleUsers } from "../../store/slices/userSlices/userSlices"
 import { BiSearchAlt2 } from 'react-icons/bi';
-import { useEffect, useRef, } from "react";
+import { useEffect, useRef, useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import Display from "../display/display";
@@ -9,12 +9,13 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebasaConfig/FirebasaConfig";
 import Users from "../users/users";
 
-
 function Main({ users }) {
     const { user } = useSelector(selectUsers)
     const navigate = useNavigate()
     const leftRef = useRef(null)
     const middleRef = useRef(null)
+    const dispatch = useDispatch()
+    const [avatar, setAvatar] = useState(false)
 
     const updateUser = async (id) => {
         let date = new Date()
@@ -35,7 +36,6 @@ function Main({ users }) {
     }
 
     useEffect(() => {
-
         if (!user) {
             navigate('/')
         }
@@ -45,8 +45,13 @@ function Main({ users }) {
                 updateUser(user.id)
             }, 60000)
         }
+        users.forEach(el => {
+            if (user.id === el.id) {
+                dispatch(toggleUsers(el))
+            }
+        });
 
-    }, [])
+    }, [avatar])
 
     return (
         <div className="main">
@@ -79,7 +84,7 @@ function Main({ users }) {
                             <h2>{user?.name} {user?.lastname}</h2>
                         </div>
                         <div className="section">
-                            <Display users={users} />
+                            <Display setAvatar={setAvatar} avatar={avatar} users={users} />
                         </div>
                     </div>
                 </div>

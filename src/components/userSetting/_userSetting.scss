@@ -1,0 +1,12 @@
+.user-setting {
+    h1 {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .avatar-change {
+        .avatar-image {
+            @include content-image(100px, 100px, $wish-blue)
+        }
+    }
+}

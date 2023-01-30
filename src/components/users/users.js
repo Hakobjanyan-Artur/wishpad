@@ -26,7 +26,7 @@ function Users({ users }) {
                                 background: user.mounth === mounth && user.day === day && user.hour === hour && user.minutes <= minutes + 5 && user.minutes >= minutes - 5 ? '' : 'red'
                             }}
                             className='user-online'></div>
-                        <img src={userImage} alt="" />
+                        <img src={user?.avatar ? `https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/avatar%2F${user?.avatar}?alt=media&token=14d679a8-2733-45ec-b62e-3de52bc99025` : userImage} alt="" />
                     </div>
                     <div className='user-home-left'>
                         <h3>{user?.name} {user?.lastname}</h3>

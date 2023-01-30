@@ -1,0 +1,94 @@
+@include font('roboto', './fonts/Roboto-Thin.ttf');
+@include font('clash', './fonts/ClashDisplay-Medium.ttf');
+@include font('elsie', './fonts/Elsie-Regular.ttf');
+
+.current-user {
+    height: 100vh;
+
+    .content {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #00f26100, $wish-blue);
+
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            text-align: center;
+            font-family: 'elsie';
+            color: $wish-grey;
+        }
+
+        .settings {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            padding-top: 30px;
+            text-align: end;
+            width: 100%;
+            font-size: 22px;
+            color: $wish-grey;
+
+            .setting-icon {
+                cursor: pointer;
+            }
+        }
+
+        .images {
+            margin-top: 20px;
+            @include content-image(150px, 150px, $wish-blue)
+        }
+
+        .name {
+            color: $wish-grey;
+            font-family: 'roboto';
+        }
+
+        .location {
+            font-family: 'roboto';
+            color: $wish-grey;
+        }
+    }
+
+    section {
+        background: $wish-grey;
+        display: grid;
+        height: 100%;
+        margin-top: 20px;
+        grid-template-columns: repeat(3, 1fr);
+
+        .section-left {
+            h2 {
+                text-align: center;
+            }
+
+            .info {
+                margin-top: 30px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+
+        .section-middle {
+            cursor: pointer;
+
+            h2 {
+                text-align: center;
+            }
+        }
+
+        .section-right {
+            cursor: pointer;
+
+            h2 {
+                text-align: center;
+            }
+        }
+    }
+}
