@@ -17,9 +17,20 @@ function Main({ users }) {
     const middleRef = useRef(null)
 
     const updateUser = async (id) => {
-        const minutes = new Date().getMinutes()
+        let date = new Date()
+        let day = date.getDate().toString()
+        let mounth = date.getUTCMonth() + 1
+        mounth = mounth.toString()
+        let hour = date.getHours()
+        let minutes = date.getMinutes()
+
         const userDoc = doc(db, "users", id)
-        const newFileds = { min: minutes }
+        const newFileds = {
+            mounth: mounth,
+            day: day,
+            hour: hour,
+            minutes: minutes
+        }
         await updateDoc(userDoc, newFileds)
     }
 
@@ -32,7 +43,7 @@ function Main({ users }) {
             updateUser(user.id)
             setInterval(() => {
                 updateUser(user.id)
-            }, 60000 * 3)
+            }, 60000)
         }
 
     }, [])

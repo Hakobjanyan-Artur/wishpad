@@ -1,13 +1,17 @@
+import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import userImage from '../../images/user.png'
 import { toggleId } from '../../store/slices/userSlices/userSlices'
 
 function Users({ users }) {
     const dispatch = useDispatch()
-    let minutes = new Date().getMinutes()
-    setInterval(() => {
-        minutes = new Date().getMinutes()
-    }, 60000 * 6)
+    let date = new Date()
+    let day = date.getDate().toString()
+    let mounth = date.getUTCMonth() + 1
+    mounth = mounth.toString()
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
+
 
     return (
         <>
@@ -19,7 +23,7 @@ function Users({ users }) {
                     <div className="user-image">
                         <div
                             style={{
-                                background: user.min >= minutes + 5 || user.min <= minutes - 5 ? 'red' : ''
+                                background: user.mounth === mounth && user.day === day && user.hour === hour && user.minutes <= minutes + 5 && user.minutes >= minutes - 5 ? '' : 'red'
                             }}
                             className='user-online'></div>
                         <img src={userImage} alt="" />
@@ -34,4 +38,4 @@ function Users({ users }) {
     )
 }
 
-export default Users
+export default memo(Users)

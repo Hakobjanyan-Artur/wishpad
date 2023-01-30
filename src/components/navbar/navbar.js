@@ -3,7 +3,7 @@ import { BsHouseDoor } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
 import { TbBrandMessenger } from 'react-icons/tb';
 import { HiOutlineStatusOnline } from 'react-icons/hi';
-import { BiSearchAlt2 } from 'react-icons/bi';
+import { memo } from "react";
 
 
 function Navbar() {
@@ -17,4 +17,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default memo(Navbar)

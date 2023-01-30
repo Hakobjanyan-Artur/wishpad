@@ -3,9 +3,15 @@ import userImage from '../../images/user.png'
 
 function Online({ users }) {
     const navigate = useNavigate()
-    let minutes = new Date().getMinutes()
+    let date = new Date()
+    let day = date.getDate().toString()
+    let mounth = date.getUTCMonth() + 1
+    mounth = mounth.toString()
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
 
-    let onlineUsers = users.filter((user) => user.min < minutes + 5 && user.min > minutes - 5)
+
+    let onlineUsers = users.filter((user) => user.mounth === mounth && user.day === day && user.hour === hour && user.minutes <= minutes + 5 && user.minutes >= minutes - 5)
 
     return (
         <>

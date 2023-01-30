@@ -18,7 +18,7 @@ const userSlices = createSlice({
                 ...state,
                 id: payload
             }
-        }
+        },
     }
 })
 
