@@ -7,7 +7,7 @@ import Search from "../search/search"
 import UserMedia from "../usermedia/userMedia"
 import UserSetting from "../userSetting/userSetting"
 
-function Display({ users, setAvatar, avatar }) {
+function Display({ users, setAvatar, avatar, coverImage, setCoverImage, info, setInfo, togglePass, setTogglePass }) {
     return (
         <div className="display">
             <Routes>
@@ -17,7 +17,7 @@ function Display({ users, setAvatar, avatar }) {
                 <Route path="/donline" element={<Online users={users} />} />
                 <Route path="/dsearch" element={<Search users={users} />} />
                 <Route path="/dusermedia" element={<UserMedia />} />
-                <Route path="/dusersetting" element={<UserSetting avatar={avatar} setAvatar={setAvatar} />} />
+                <Route path="/dusersetting" element={<UserSetting info={info} setInfo={setInfo} togglePass={togglePass} setTogglePass={setTogglePass} coverImage={coverImage} setCoverImage={setCoverImage} avatar={avatar} setAvatar={setAvatar} />} />
             </Routes>
         </div>
     )

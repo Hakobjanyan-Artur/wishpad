@@ -16,6 +16,9 @@ function Main({ users }) {
     const middleRef = useRef(null)
     const dispatch = useDispatch()
     const [avatar, setAvatar] = useState(false)
+    const [coverImage, setCoverImage] = useState(false)
+    const [info, setInfo] = useState(false)
+    const [togglePass, setTogglePass] = useState(false)
 
     const updateUser = async (id) => {
         let date = new Date()
@@ -51,7 +54,7 @@ function Main({ users }) {
             }
         });
 
-    }, [avatar])
+    }, [avatar, coverImage, info, togglePass])
 
     return (
         <div className="main">
@@ -84,7 +87,7 @@ function Main({ users }) {
                             <h2>{user?.name} {user?.lastname}</h2>
                         </div>
                         <div className="section">
-                            <Display setAvatar={setAvatar} avatar={avatar} users={users} />
+                            <Display info={info} setInfo={setInfo} togglePass={togglePass} setTogglePass={setTogglePass} coverImage={coverImage} setCoverImage={setCoverImage} setAvatar={setAvatar} avatar={avatar} users={users} />
                         </div>
                     </div>
                 </div>

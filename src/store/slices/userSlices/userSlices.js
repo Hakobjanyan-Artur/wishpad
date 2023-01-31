@@ -24,6 +24,6 @@ const userSlices = createSlice({
 
 export const selectUsers = state => state.user
 
-export const { toggleUsers, toggleId, toggleUserAvatar } = userSlices.actions
+export const { toggleUsers, toggleId } = userSlices.actions
 
 export const usersReducer = userSlices.reducer

@@ -1,0 +1,19 @@
+@include font('roboto', './fonts/Roboto-Thin.ttf');
+@include font('clash', './fonts/ClashDisplay-Medium.ttf');
+@include font('elsie', './fonts/Elsie-Regular.ttf');
+
+.user-media {
+    min-height: 100vh;
+    padding: 30px;
+
+    .add-media {
+        width: 150px;
+        height: 150px;
+        border: 1px solid gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 25px;
+    }
+}

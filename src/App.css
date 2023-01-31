@@ -720,16 +720,22 @@
 .current-user {
   height: 100vh;
 }
-.current-user .content {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 242, 97, 0), rgb(33, 92, 243));
-}
 .current-user header {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.current-user header .content {
+  width: 100%;
+  height: 370px;
+  background: linear-gradient(to bottom, rgba(0, 242, 97, 0), rgb(33, 92, 243));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0 50px 0;
+  position: relative;
 }
 .current-user header .title {
   text-align: center;
@@ -737,12 +743,9 @@
   color: rgb(248, 249, 251);
 }
 .current-user header .settings {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 30px;
-  padding-top: 30px;
-  text-align: end;
-  width: 100%;
+  position: absolute;
+  top: 30px;
+  right: 30px;
   font-size: 22px;
   color: rgb(248, 249, 251);
 }
@@ -750,7 +753,6 @@
   cursor: pointer;
 }
 .current-user header .images {
-  margin-top: 20px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -777,7 +779,7 @@
   background: rgb(248, 249, 251);
   display: grid;
   height: 100%;
-  margin-top: 20px;
+  padding-top: 20px;
   grid-template-columns: repeat(3, 1fr);
 }
 .current-user section .section-left h2 {
@@ -806,6 +808,26 @@
   text-align: center;
   margin: 30px 0;
 }
+.user-setting button {
+  margin-top: 10px;
+  width: 120px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "roboto";
+  cursor: pointer;
+  background: rgb(33, 92, 243);
+  color: rgb(248, 249, 251);
+  box-shadow: 0 0 10px rgb(33, 92, 243);
+  transition: 0.4s;
+}
+.user-setting .content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  padding-left: 20px;
+}
 .user-setting .avatar-change .avatar-image {
   width: 100px;
   height: 100px;
@@ -820,6 +842,111 @@
   width: 90px;
   height: height-10px;
   border-radius: 50%;
+}
+.user-setting .cover-change {
+  margin: 30px 0;
+}
+.user-setting .cover-change .cover-image {
+  height: 100px;
+}
+.user-setting .cover-change .cover-image img {
+  height: 100px;
+}
+.user-setting .change-info-form input {
+  width: 220px;
+  height: 30px;
+  outline: none;
+  border: none;
+  background: rgb(248, 249, 251);
+  border-radius: 10px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.user-setting .change-info-form .select {
+  outline: none;
+}
+.user-setting .change-password input {
+  width: 220px;
+  height: 30px;
+  outline: none;
+  border: none;
+  background: rgb(248, 249, 251);
+  border-radius: 10px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.user-setting .now-password {
+  position: relative;
+}
+.user-setting .now-password .password-simvols {
+  width: 150%;
+  position: absolute;
+  padding: 10px;
+  top: 100%;
+  left: 0;
+  background: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-setting .now-password .password-simvols h4 {
+  text-align: center;
+  font-family: "elsie";
+}
+.user-setting .now-password .password-simvols .simvols {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.user-setting .now-password .password-simvols .simvols-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gray;
+  font-family: "roboto";
+}
+.user-setting .now-password .password-simvols .range {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+}
+.user-setting .now-password .password-simvols .symbol {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.user-setting .now-password .password-simvols .symbol .range-text {
+  display: flex;
+  gap: 10px;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.user-media {
+  min-height: 100vh;
+  padding: 30px;
+}
+.user-media .add-media {
+  width: 150px;
+  height: 150px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 * {
