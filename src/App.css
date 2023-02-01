@@ -798,11 +798,93 @@
   right: -15px;
   bottom: -15px;
   background: grey;
-  color: #fff;
-  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.current-user header .location .request-friend .request-friends-count .req-count-cont {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  background: rgb(248, 249, 251);
+  color: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.current-user header .location .request-friend .notificate-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border-radius: 10px;
+  min-width: 300px;
+  min-height: 50px;
+  padding: 20px;
+  background: rgb(33, 92, 243);
+  border: 1px solid rgb(248, 249, 251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: auto;
+}
+.current-user header .location .request-friend .notificate-content .req-btns {
+  width: 50px;
+  background: rgb(248, 249, 251);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  top: 0;
+  right: -50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2px;
+  gap: 3px;
+}
+.current-user header .location .request-friend .notificate-content .req-btns button {
+  border: none;
+  border-radius: 10px;
+  background: rgb(33, 92, 243);
+  cursor: pointer;
+  color: rgb(248, 249, 251);
+  transition: 0.5s;
+  border: 1px solid rgb(33, 92, 243);
+}
+.current-user header .location .request-friend .notificate-content .req-btns button:hover {
+  background: rgb(248, 249, 251);
+  color: rgb(33, 92, 243);
+  border: 1px solid rgb(33, 92, 243);
+}
+.current-user header .location .request-friend .notificate-content .req-user-content {
+  width: 300px;
+  height: 80px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background: rgb(248, 249, 251);
+  padding-left: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.current-user header .location .request-friend .notificate-content .req-user-content .req-cont-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current-user header .location .request-friend .notificate-content .req-user-content .req-cont-image img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.current-user header .location .request-friend .notificate-content .req-user-content .user-info {
+  margin-left: 5px;
+  color: #000;
 }
 .current-user section {
   background: rgb(248, 249, 251);

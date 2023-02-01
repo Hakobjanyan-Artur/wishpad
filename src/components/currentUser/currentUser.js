@@ -5,11 +5,42 @@ import coverImage from '../../images/background.jpg'
 import { useSelector } from 'react-redux'
 import { selectUsers } from '../../store/slices/userSlices/userSlices'
 import { useNavigate } from 'react-router-dom'
-import { memo, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 function CurrentUser() {
-    const { user } = useSelector(selectUsers)
+    const { user, users } = useSelector(selectUsers)
+    const [requestUser, setRequestUser] = useState([])
+    const [modalRequest, setModalRequest] = useState(false)
     const navigate = useNavigate()
+
+    const requestUsFunc = () => {
+        let reqFriends = []
+        let friends = []
+        users?.forEach(el => {
+            reqFriends.unshift(...el.friendRequest)
+        })
+        reqFriends.filter(el => {
+            users?.forEach(forel => {
+                if (forel?.id === el) {
+                    friends.unshift(forel)
+                }
+            })
+        })
+        setRequestUser([
+            ...friends
+        ])
+    }
+
+    console.log(requestUser)
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+        if (user?.friendRequest.length > 0) {
+            requestUsFunc()
+        }
+    }, [])
     return (
         <div
             className="current-user">
@@ -37,14 +68,39 @@ function CurrentUser() {
                     </div>
                     <div className='location'>
                         <h3>Location: {user?.city ? user?.city + ', ' + user?.homeland : 'Not filled'}</h3>
-                        <div className='request-friend'>
+                        <div
+                            onClick={() => setModalRequest(!modalRequest)}
+                            className='request-friend'>
+                            <div
+                                style={{
+                                    display: modalRequest ? 'flex' : 'none'
+                                }}
+                                className='notificate-content'>
+                                {requestUser?.map((reqUser) => (
+                                    <div key={reqUser?.id} className='req-user-content'>
+                                        <div className='req-cont-image'>
+                                            <img src={`https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/avatar%2F${reqUser?.avatar}?alt=media&token=14d679a8-2733-45ec-b62e-3de52bc99025`} alt="" />
+                                        </div>
+                                        <div className='user-info'>
+                                            <h5>{reqUser?.name} {reqUser?.lastname}</h5>
+                                            <h6>{reqUser?.city} {reqUser?.homeland}</h6>
+                                        </div>
+                                        <div className='req-btns'>
+                                            <button>Acc</button>
+                                            <button>Reject</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                             <MdCircleNotifications />
                             <div
                                 style={{
                                     display: user?.friendRequest.length === 0 ? 'none' : 'flex'
                                 }}
                                 className='request-friends-count'>
-                                {user?.friendRequest.length}
+                                <span className='req-count-cont'>
+                                    {user?.friendRequest.length}
+                                </span>
                             </div>
                         </div>
                     </div>
