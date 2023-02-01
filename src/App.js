@@ -14,7 +14,6 @@ function App() {
   const usersRef = collection(db, "users")
   const dispatch = useDispatch()
 
-
   const usersToggle = async () => {
     await onSnapshot(usersRef, (snapShot) => {
       let users = []

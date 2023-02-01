@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom"
+import ClickedByUser from "../clickedByUser/clickedByUser"
+import ClickedUserMedia from "../clickedUserMedia/clickedUserMedia"
 import CurrentUser from "../currentUser/currentUser"
 import Friends from "../friends/friends"
 import Messenger from "../messenger/messenger"
@@ -16,6 +18,8 @@ function Display({ users, setAvatar, avatar, coverImage, setCoverImage, info, se
                 <Route path="/dmessenger" element={<Messenger />} />
                 <Route path="/donline" element={<Online users={users} />} />
                 <Route path="/dsearch" element={<Search users={users} />} />
+                <Route path="/dclickedByUser" element={<ClickedByUser users={users} />} />
+                <Route path="/dclickedUserMedia" element={<ClickedUserMedia users={users} />} />
                 <Route path="/dusermedia" element={<UserMedia info={info} setInfo={setInfo} addimg={addimg} setAddImg={setAddImg} />} />
                 <Route path="/dusersetting" element={<UserSetting info={info} setInfo={setInfo} togglePass={togglePass} setTogglePass={setTogglePass} coverImage={coverImage} setCoverImage={setCoverImage} avatar={avatar} setAvatar={setAvatar} />} />
             </Routes>

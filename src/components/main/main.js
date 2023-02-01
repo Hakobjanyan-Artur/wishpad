@@ -46,19 +46,22 @@ function Main({ users }) {
     }, [])
 
     useEffect(() => {
+        users.forEach(el => {
+            if (user?.id === el.id) {
+                dispatch(toggleUsers(el))
+            }
+        });
+    }, [avatar, coverImage, info, togglePass])
+
+    useEffect(() => {
         if (user) {
             updateUser(user?.id)
             setInterval(() => {
                 updateUser(user?.id)
             }, 60000)
         }
-        users.forEach(el => {
-            if (user?.id === el.id) {
-                dispatch(toggleUsers(el))
-            }
-        });
 
-    }, [avatar, coverImage, info, togglePass])
+    }, [])
 
     return (
         <div className="main">

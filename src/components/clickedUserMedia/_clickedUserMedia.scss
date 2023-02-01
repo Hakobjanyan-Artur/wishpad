@@ -1,0 +1,48 @@
+@include font('roboto', './fonts/Roboto-Thin.ttf');
+@include font('clash', './fonts/ClashDisplay-Medium.ttf');
+@include font('elsie', './fonts/Elsie-Regular.ttf');
+
+.clicked-user-media {
+    min-height: 100vh;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+
+    .modal-image {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(56, 56, 56, 0.675);
+        display: flex;
+
+        .exit {
+            position: absolute;
+            font-size: 30px;
+            top: 20px;
+            right: 15%;
+            cursor: pointer;
+            color: #fff;
+        }
+    }
+
+    .media {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5%;
+        margin-top: 20px;
+        padding-left: 5%;
+        width: 100%;
+    }
+
+    .media-img {
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+}

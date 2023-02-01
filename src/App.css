@@ -557,12 +557,12 @@
   }
 }
 .main .main-container .middle .header {
-  box-shadow: 0 5px 10px rgba(182, 182, 182, 0.519);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
   font-family: "roboto";
+  background-color: rgb(33, 92, 243);
 }
 
 .navbar {
@@ -1089,6 +1089,166 @@
   font-size: 35px;
   background: rgba(128, 128, 128, 0.483);
   cursor: pointer;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.click-by-user {
+  height: 100%;
+}
+.click-by-user header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.click-by-user header .click-user-content {
+  width: 100%;
+  height: 370px;
+  background: linear-gradient(to bottom, rgba(0, 242, 97, 0), rgb(33, 92, 243));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0 30px 0;
+  position: relative;
+}
+.click-by-user header .click-user-images {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.click-by-user header .click-user-images img {
+  width: 140px;
+  height: height-10px;
+  border-radius: 50%;
+}
+.click-by-user header .click-user-name {
+  color: rgb(248, 249, 251);
+  font-family: "roboto";
+}
+.click-by-user header .click-user-location {
+  font-family: "roboto";
+  color: rgb(248, 249, 251);
+}
+.click-by-user section {
+  background: rgb(248, 249, 251);
+  display: grid;
+  padding-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.click-by-user section .click-user-section-left h2 {
+  text-align: center;
+}
+.click-by-user section .click-user-section-left .click-user-info {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.click-by-user section .click-user-section-middle {
+  cursor: pointer;
+  border-left: 3px solid gray;
+  border-right: 3px solid gray;
+}
+.click-by-user section .click-user-section-middle h2 {
+  text-align: center;
+}
+.click-by-user section .click-user-section-right {
+  cursor: pointer;
+}
+.click-by-user section .click-user-section-right h2 {
+  text-align: center;
+}
+.click-by-user section .click-user-section-right .click-user-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  gap: 10px;
+  margin-top: 10px;
+}
+.click-by-user section .click-user-section-right .click-user-media .click-user-media-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.click-by-user section .click-user-section-right .click-user-media .click-user-media-img img {
+  width: 60px;
+  height: height-10px;
+  border-radius: 50%;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.clicked-user-media {
+  min-height: 100vh;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+.clicked-user-media .modal-image {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(56, 56, 56, 0.675);
+  display: flex;
+}
+.clicked-user-media .modal-image .exit {
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  right: 15%;
+  cursor: pointer;
+  color: #fff;
+}
+.clicked-user-media .media {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+  margin-top: 20px;
+  padding-left: 5%;
+  width: 100%;
+}
+.clicked-user-media .media-img {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 * {

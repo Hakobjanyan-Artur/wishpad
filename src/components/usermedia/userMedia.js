@@ -95,24 +95,6 @@ function UserMedia({ addimg, setAddImg, info, setInfo }) {
 
     }
 
-    // useEffect(() => {
-    //     if (imgListRef) {
-    //         listAll(imgListRef).then((res) => {
-    //             res.items.forEach((item) => {
-    //                 getDownloadURL(item).then((url) => {
-    //                     setImgList((prev) => [
-    //                         ...prev,
-    //                         {
-    //                             id: v4(),
-    //                             url: url
-    //                         }
-    //                     ])
-    //                 })
-    //             })
-    //         })
-    //     }
-    // }, [addimg])
-
     return (
         <div className="user-media">
             <div

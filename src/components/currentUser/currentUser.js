@@ -11,14 +11,12 @@ function CurrentUser() {
     const navigate = useNavigate()
     return (
         <div
-
             className="current-user">
             <header
                 style={{
                     background: `url(${user?.coverImage ? `https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/cover%2F${user?.coverImage}?alt=media&token=31846fa8-f67a-463a-947e-59a415c1ec87` : coverImage})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    // backgroundPosition: 'bottom',
                 }}
             >
                 <div className='content'>

@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import userImage from '../../images/user.png'
 import { toggleId } from '../../store/slices/userSlices/userSlices'
 
@@ -11,12 +12,19 @@ function Users({ users }) {
     mounth = mounth.toString()
     let hour = date.getHours()
     let minutes = date.getMinutes()
+    const navigate = useNavigate()
+
+
+    const clickedUser = (id) => {
+        dispatch(toggleId(id))
+        navigate('/main/dclickedByUser')
+    }
 
     return (
         <>
             {users?.map((user) => (
                 <div
-                    onClick={() => dispatch(toggleId(user?.id))}
+                    onClick={() => clickedUser(user?.id)}
                     key={user?.id}
                     className="home-users">
                     <div className="user-image">

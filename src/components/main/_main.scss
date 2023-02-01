@@ -130,12 +130,12 @@
             }
 
             .header {
-                box-shadow: 0 5px 10px rgba(182, 182, 182, 0.519);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 70px;
                 font-family: 'roboto';
+                background-color: $wish-blue;
             }
 
         }

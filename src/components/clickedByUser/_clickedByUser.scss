@@ -1,0 +1,91 @@
+@include font('roboto', './fonts/Roboto-Thin.ttf');
+@include font('clash', './fonts/ClashDisplay-Medium.ttf');
+@include font('elsie', './fonts/Elsie-Regular.ttf');
+
+.click-by-user {
+    height: 100%;
+
+    header {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .click-user-content {
+            width: 100%;
+            height: 370px;
+            background: linear-gradient(to bottom, #00f26100, $wish-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 0 30px 0;
+            position: relative;
+        }
+
+
+        .click-user-images {
+            @include content-image(150px, 150px, $wish-blue)
+        }
+
+        .click-user-name {
+            color: $wish-grey;
+            font-family: 'roboto';
+        }
+
+        .click-user-location {
+            font-family: 'roboto';
+            color: $wish-grey;
+        }
+    }
+
+    section {
+        background: $wish-grey;
+        display: grid;
+        padding-top: 20px;
+        grid-template-columns: repeat(3, 1fr);
+
+        .click-user-section-left {
+            h2 {
+                text-align: center;
+            }
+
+            .click-user-info {
+                margin-top: 30px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+
+        .click-user-section-middle {
+            cursor: pointer;
+            border-left: 3px solid gray;
+            border-right: 3px solid gray;
+
+            h2 {
+                text-align: center;
+            }
+        }
+
+        .click-user-section-right {
+            cursor: pointer;
+
+            h2 {
+                text-align: center;
+            }
+
+            .click-user-media {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                gap: 10px;
+                margin-top: 10px;
+
+                .click-user-media-img {
+                    @include content-image(70px, 70px, $wish-blue)
+                }
+            }
+        }
+    }
+}
