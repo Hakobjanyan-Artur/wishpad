@@ -1,10 +1,11 @@
 import { GiSettingsKnobs } from 'react-icons/gi'
+import { MdCircleNotifications } from 'react-icons/md'
 import userImages from '../../images/user.png'
 import coverImage from '../../images/background.jpg'
 import { useSelector } from 'react-redux'
 import { selectUsers } from '../../store/slices/userSlices/userSlices'
 import { useNavigate } from 'react-router-dom'
-import { memo } from 'react'
+import { memo, useState } from 'react'
 
 function CurrentUser() {
     const { user } = useSelector(selectUsers)
@@ -36,6 +37,16 @@ function CurrentUser() {
                     </div>
                     <div className='location'>
                         <h3>Location: {user?.city ? user?.city + ', ' + user?.homeland : 'Not filled'}</h3>
+                        <div className='request-friend'>
+                            <MdCircleNotifications />
+                            <div
+                                style={{
+                                    display: user?.friendRequest.length === 0 ? 'none' : 'flex'
+                                }}
+                                className='request-friends-count'>
+                                {user?.friendRequest.length}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>

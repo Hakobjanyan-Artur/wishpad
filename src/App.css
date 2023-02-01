@@ -625,7 +625,7 @@
 }
 .home-users .user-image img {
   width: 60px;
-  height: height-10px;
+  height: 60px;
   border-radius: 50%;
 }
 .home-users .user-image .user-online {
@@ -678,11 +678,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .online-users .user-image img {
   width: 60px;
-  height: height-10px;
+  height: 60px;
   border-radius: 50%;
 }
 .online-users .user-image .user-online {
@@ -762,11 +761,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .current-user header .images img {
   width: 140px;
-  height: height-10px;
+  height: 140px;
   border-radius: 50%;
 }
 .current-user header .name {
@@ -776,6 +774,35 @@
 .current-user header .location {
   font-family: "roboto";
   color: rgb(248, 249, 251);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.current-user header .location .request-friend {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.current-user header .location .request-friend .request-friends-count {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  background: grey;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .current-user section {
   background: rgb(248, 249, 251);
@@ -822,11 +849,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .current-user section .section-right .media .media-img img {
   width: 60px;
-  height: height-10px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -873,11 +899,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .user-setting .avatar-change .avatar-image img {
   width: 90px;
-  height: height-10px;
+  height: 90px;
   border-radius: 50%;
 }
 .user-setting .cover-change {
@@ -1130,11 +1155,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .click-by-user header .click-user-images img {
   width: 140px;
-  height: height-10px;
+  height: 140px;
   border-radius: 50%;
 }
 .click-by-user header .click-user-name {
@@ -1144,6 +1168,51 @@
 .click-by-user header .click-user-location {
   font-family: "roboto";
   color: rgb(248, 249, 251);
+}
+.click-by-user header .btns {
+  display: flex;
+  gap: 20px;
+}
+.click-by-user header .btns .btn-message,
+.click-by-user header .btns .btm-add-friend {
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "roboto";
+  cursor: pointer;
+  background: rgb(33, 92, 243);
+  color: rgb(248, 249, 251);
+  box-shadow: 0 0 10px rgb(33, 92, 243);
+  transition: 0.4s;
+  box-shadow: 0 0 10px #fff;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.click-by-user header .btns .btn-message:hover,
+.click-by-user header .btns .btm-add-friend:hover {
+  background-color: #fff;
+  color: rgb(33, 92, 243);
+}
+.click-by-user header .btns button {
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "roboto";
+  cursor: pointer;
+  background: rgb(33, 92, 243);
+  color: rgb(248, 249, 251);
+  box-shadow: 0 0 10px rgb(33, 92, 243);
+  transition: 0.4s;
+  box-shadow: 0 0 10px #fff;
+  font-size: 16px;
+  cursor: auto;
 }
 .click-by-user section {
   background: rgb(248, 249, 251);
@@ -1190,11 +1259,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .click-by-user section .click-user-section-right .click-user-media .click-user-media-img img {
   width: 60px;
-  height: height-10px;
+  height: 60px;
   border-radius: 50%;
 }
 

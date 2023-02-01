@@ -53,6 +53,37 @@
         .location {
             font-family: 'roboto';
             color: $wish-grey;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .request-friend {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: grey;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 25px;
+                position: relative;
+                cursor: pointer;
+
+                .request-friends-count {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -15px;
+                    bottom: -15px;
+                    background: grey;
+                    color: #fff;
+                    font-size: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
         }
     }
 

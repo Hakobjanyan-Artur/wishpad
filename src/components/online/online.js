@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import userImage from '../../images/user.png'
@@ -5,6 +6,7 @@ import { selectUsers } from '../../store/slices/userSlices/userSlices'
 
 function Online() {
     const navigate = useNavigate()
+    const { user } = useSelector(selectUsers)
     let date = new Date()
     let day = date.getDate().toString()
     let mounth = date.getUTCMonth() + 1
@@ -15,6 +17,15 @@ function Online() {
 
 
     let onlineUsers = users.filter((user) => user.mounth === mounth && user.day === day && user.hour === hour && user.minutes <= minutes + 5 && user.minutes >= minutes - 5)
+
+    useEffect(() => {
+        if (!user) {
+            if (!user) {
+                navigate('/')
+            }
+        }
+    }, [])
+
 
     return (
         <>

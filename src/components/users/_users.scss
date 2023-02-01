@@ -12,6 +12,7 @@
 
     .user-image {
         @include content-image(70px, 70px, $wish-grey);
+        position: relative;
 
         .user-online {
             width: 10px;

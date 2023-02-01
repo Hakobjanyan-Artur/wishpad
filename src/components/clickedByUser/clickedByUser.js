@@ -4,12 +4,19 @@ import coverImage from '../../images/background.jpg'
 import userImages from '../../images/user.png'
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { doc, updateDoc } from "firebase/firestore"
+import { db } from "../firebasaConfig/FirebasaConfig"
+import { IoIosPersonAdd } from 'react-icons/io'
+import { TiMessages } from 'react-icons/ti'
+import { GrStatusGood } from 'react-icons/gr'
+import { GiSandsOfTime } from 'react-icons/gi'
 
 
 function ClickedByUser() {
     const { id, users, user } = useSelector(selectUsers)
     const [clickedUser, setClickedUser] = useState(null)
     const navigate = useNavigate()
+    const [friendBtn, setFriendBtn] = useState('add')
 
 
     useEffect(() => {
@@ -31,6 +38,22 @@ function ClickedByUser() {
         }
     }, [])
 
+    const addFriends = () => {
+        const updateUser = async (id) => {
+
+            const userDoc = doc(db, "users", id)
+            const newFileds = {
+                friendRequest: [
+                    ...clickedUser.friendRequest,
+                    user.id
+                ]
+            }
+            await updateDoc(userDoc, newFileds)
+        }
+        updateUser(clickedUser.id)
+        setFriendBtn('friendRequest')
+    }
+
     return (
         <div className="click-by-user">
             <header
@@ -47,6 +70,14 @@ function ClickedByUser() {
                     </div>
                     <div className='click-user-location'>
                         <h3>Location: {clickedUser?.city ? clickedUser?.city + ', ' + clickedUser?.homeland : 'Not filled'}</h3>
+                    </div>
+                    <div className="btns">
+                        <button className="btn-message"> <span className="btn-icon"><TiMessages /></span> Message</button>
+                        {
+                            friendBtn === 'add' ? <button className="btn-add-friend" onClick={() => addFriends()}> <span className="btn-icon"><IoIosPersonAdd /></span> Add</button> :
+                                friendBtn === 'friendRequest' ? <button> <span className="btn-icon"><GiSandsOfTime /></span> Request Sent</button> :
+                                    <button> <span className="btn-icon"><GrStatusGood /></span> Friend</button>
+                        }
                     </div>
                 </div>
             </header>

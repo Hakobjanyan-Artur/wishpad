@@ -9,10 +9,11 @@ import { selectUsers } from '../../store/slices/userSlices/userSlices'
 import { v4 } from 'uuid'
 import { doc, updateDoc } from 'firebase/firestore'
 import MediaItem from '../mediaItem/mediaItem'
+import { useNavigate } from 'react-router-dom'
 
 function UserMedia({ addimg, setAddImg, info, setInfo }) {
     const { user } = useSelector(selectUsers)
-    // const [imgList, setImgList] = useState([])
+    const navigate = useNavigate()
     const [clickId, setClickId] = useState("")
     const [mousEnter, setMousEnter] = useState(true)
     const [modalHidden, setModalHidden] = useState(false)
@@ -66,7 +67,6 @@ function UserMedia({ addimg, setAddImg, info, setInfo }) {
         setClickId(id)
     }
 
-    // const imgListRef = ref(storage, `images/${user?.id}/`)
 
     const imgListUpload = (e) => {
         const img = e.target.files[0]
@@ -94,6 +94,12 @@ function UserMedia({ addimg, setAddImg, info, setInfo }) {
         })
 
     }
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className="user-media">

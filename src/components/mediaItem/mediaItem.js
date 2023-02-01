@@ -1,11 +1,13 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { FcPrevious, FcNext } from 'react-icons/fc'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectUsers } from '../../store/slices/userSlices/userSlices';
 
 function MediaItem({ clickId }) {
     const { user } = useSelector(selectUsers)
     const [id, setId] = useState("")
+    const navigate = useNavigate()
 
     const nextPhoto = () => {
 
@@ -32,6 +34,12 @@ function MediaItem({ clickId }) {
             }
         }
     }
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className="media-item">

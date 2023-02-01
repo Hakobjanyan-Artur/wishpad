@@ -18,7 +18,7 @@
     }
 }
 
-@mixin btn($width, $height) {
+@mixin btn($width, $height, $bgcolor: $wish-blue, $color: $wish-grey) {
     width: $width;
     height: $height;
     border-radius: 20px;
@@ -26,8 +26,8 @@
     font-size: 18px;
     font-family: 'roboto';
     cursor: pointer;
-    background: $wish-blue;
-    color: $wish-grey;
+    background: $bgcolor;
+    color: $color;
     box-shadow: 0 0 10px $wish-blue;
     transition: .4s;
 }
@@ -40,11 +40,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 
     img {
         width: $width - 10px;
-        height: height - 10px;
+        height: $height - 10px;
         border-radius: 50%;
     }
 }

@@ -1,14 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { selectUsers } from "../../store/slices/userSlices/userSlices"
 import { AiOutlineFullscreenExit } from 'react-icons/ai'
 import MediaItem from "../mediaItem/mediaItem"
+import { useNavigate } from "react-router-dom"
 
 
 function ClickedUserMedia() {
-    const { users, id } = useSelector(selectUsers)
+    const { users, id, user } = useSelector(selectUsers)
     const [modalHidden, setModalHidden] = useState(false)
     const [clickId, setClickId] = useState("")
+    const navigate = useNavigate()
     let clickedUser
 
     for (const user of users) {
@@ -21,6 +23,12 @@ function ClickedUserMedia() {
         setModalHidden(true)
         setClickId(id)
     }
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className="clicked-user-media">

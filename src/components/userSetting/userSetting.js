@@ -1,4 +1,4 @@
-import { memo, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { selectUsers } from "../../store/slices/userSlices/userSlices"
 import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage";
@@ -243,6 +243,12 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
             }
         )
     }
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className="user-setting">
