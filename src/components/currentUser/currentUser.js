@@ -4,6 +4,7 @@ import coverImage from '../../images/background.jpg'
 import { useSelector } from 'react-redux'
 import { selectUsers } from '../../store/slices/userSlices/userSlices'
 import { useNavigate } from 'react-router-dom'
+import { memo } from 'react'
 
 function CurrentUser() {
     const { user } = useSelector(selectUsers)
@@ -14,10 +15,10 @@ function CurrentUser() {
             className="current-user">
             <header
                 style={{
-                    background: `url(${user?.coverImage ? `https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/cover%2F${user.coverImage}?alt=media&token=31846fa8-f67a-463a-947e-59a415c1ec87` : coverImage})`,
+                    background: `url(${user?.coverImage ? `https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/cover%2F${user?.coverImage}?alt=media&token=31846fa8-f67a-463a-947e-59a415c1ec87` : coverImage})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    backgroundPosition: 'bottom',
+                    // backgroundPosition: 'bottom',
                 }}
             >
                 <div className='content'>
@@ -33,10 +34,10 @@ function CurrentUser() {
                         <img src={user?.avatar ? `https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/avatar%2F${user?.avatar}?alt=media&token=14d679a8-2733-45ec-b62e-3de52bc99025` : userImages} alt="" />
                     </div>
                     <div className='name'>
-                        <h2>{user?.name} {user?.lastname}</h2>
+                        <h2>{user?.name}  {user?.lastname}</h2>
                     </div>
                     <div className='location'>
-                        <h3>Location: {user?.sity ? user?.sity + ',' + user?.homeland : 'Not filled'}</h3>
+                        <h3>Location: {user?.city ? user?.city + ', ' + user?.homeland : 'Not filled'}</h3>
                     </div>
                 </div>
             </header>
@@ -73,10 +74,17 @@ function CurrentUser() {
                     onClick={() => navigate('/main/dusermedia')}
                     className='section-right'>
                     <h2>Media | {user?.media.length}</h2>
+                    <div className='media'>
+                        {user?.media.map((mediaId) => (
+                            <div key={mediaId} className='media-img'>
+                                <img src={`https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/images%2F${user?.id}%2F%20${mediaId}?alt=media&token=96295942-b104-4f9d-b704-60c8e0f76b13`} alt="" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>
     )
 }
 
-export default CurrentUser
+export default memo(CurrentUser)

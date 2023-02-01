@@ -19,6 +19,7 @@ function Main({ users }) {
     const [coverImage, setCoverImage] = useState(false)
     const [info, setInfo] = useState(false)
     const [togglePass, setTogglePass] = useState(false)
+    const [addimg, setAddImg] = useState(false)
 
     const updateUser = async (id) => {
         let date = new Date()
@@ -42,14 +43,17 @@ function Main({ users }) {
         if (!user) {
             navigate('/')
         }
+    }, [])
+
+    useEffect(() => {
         if (user) {
-            updateUser(user.id)
+            updateUser(user?.id)
             setInterval(() => {
-                updateUser(user.id)
+                updateUser(user?.id)
             }, 60000)
         }
         users.forEach(el => {
-            if (user.id === el.id) {
+            if (user?.id === el.id) {
                 dispatch(toggleUsers(el))
             }
         });
@@ -87,7 +91,7 @@ function Main({ users }) {
                             <h2>{user?.name} {user?.lastname}</h2>
                         </div>
                         <div className="section">
-                            <Display info={info} setInfo={setInfo} togglePass={togglePass} setTogglePass={setTogglePass} coverImage={coverImage} setCoverImage={setCoverImage} setAvatar={setAvatar} avatar={avatar} users={users} />
+                            <Display addimg={addimg} setAddImg={setAddImg} info={info} setInfo={setInfo} togglePass={togglePass} setTogglePass={setTogglePass} coverImage={coverImage} setCoverImage={setCoverImage} setAvatar={setAvatar} avatar={avatar} users={users} />
                         </div>
                     </div>
                 </div>

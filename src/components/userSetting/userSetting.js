@@ -3,10 +3,12 @@ import { useSelector } from "react-redux"
 import { selectUsers } from "../../store/slices/userSlices/userSlices"
 import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage";
 import { db, storage } from "../firebasaConfig/FirebasaConfig";
-import { doc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import image from '../../images/user.png'
 import coverImg from '../../images/background.jpg'
 import countryData from "../country/country";
+import { useNavigate } from "react-router-dom";
+import { GiExitDoor } from 'react-icons/gi';
 
 
 function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setInfo, togglePass, setTogglePass }) {
@@ -24,11 +26,38 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
     const [passShow, setPassShow] = useState(false)
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [deleteErr, setDeleteErr] = useState(false)
+    const navigate = useNavigate()
     let country = []
     const symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+", "-", ",", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "|", "^", "_", "{", "}", "~", "`"]
     const upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     const lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "x"]
     const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+    const exitUser = () => {
+        localStorage.removeItem('localUser')
+        setTimeout(() => {
+            navigate('/')
+        }, 500)
+    }
+
+    const deleteUser = async (id) => {
+        const userDoc = doc(db, "users", id)
+        await deleteDoc(userDoc)
+        navigate('/')
+    }
+
+    const deleteUserSubmit = (e) => {
+        e.preventDefault()
+        const delEmail = e.target[0].value
+        const delPassword = e.target[1].value
+
+        if (delEmail === user.email && delPassword === user.password) {
+            deleteUser(user?.id)
+        } else {
+            setDeleteErr(true)
+        }
+    }
 
     const passError = () => {
         if (error) {
@@ -124,8 +153,8 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
     const changeInfoSubmit = (e) => {
         e.preventDefault()
         const email = e.target[0].value
-        const country = e.target[1].value
-        const sity = e.target[2].value
+        const country = e.target[1].value === "Country" ? "" : e.target[1].value
+        const city = e.target[2].value
 
         const updateUser = async (id) => {
 
@@ -133,12 +162,12 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
             const newFileds = {
                 email: email ? email : user.email,
                 homeland: country ? country : user.homeland,
-                sity: sity ? sity : user.sity
+                city: city ? city : user.city
             }
             await updateDoc(userDoc, newFileds)
             setInfo(!info)
         }
-        updateUser(user.id)
+        updateUser(user?.id)
 
         e.target.reset()
     }
@@ -217,7 +246,14 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
 
     return (
         <div className="user-setting">
-            <h1>Setting user profile</h1>
+            <div className="setting-header">
+                <h1>Setting user profile</h1>
+                <span
+                    onClick={() => exitUser()}
+                    className="exit-icon">
+                    <GiExitDoor />
+                </span>
+            </div>
             <div className="content">
                 <div className="avatar-change">
                     <h2>Change avatar</h2>
@@ -257,8 +293,7 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
                         <div className="country">
                             <h3>Country</h3>
                             <select className="select" >
-                                <option value="Country" disabled>Country</option>
-                                <option value="Russia" key="">Russia</option>
+                                <option value="Country">Country</option>
                                 {country.map((el) => (
                                     <option value={el.country} key={el.country}>{el.country}</option>
                                 ))}
@@ -360,6 +395,30 @@ function UserSetting({ avatar, setAvatar, coverImage, setCoverImage, info, setIn
                                 display: success ? 'block' : 'none'
                             }}
                         >Password changed successfully</h3>
+                    </div>
+                </div>
+                <div className="delete-user">
+                    <h2>Delete- user</h2>
+                    <form onSubmit={deleteUserSubmit}>
+                        <div className="del-email">
+                            <h4>Current Email</h4>
+                            <input
+                                onFocus={() => setDeleteErr(false)}
+                                type="email" />
+                        </div>
+                        <div className="del-password">
+                            <h4>Current Password</h4>
+                            <input type="password" />
+                        </div>
+                        <button>Delete</button>
+                    </form>
+                    <div
+                        style={{
+                            display: deleteErr ? 'block' : 'none',
+                            color: 'red'
+                        }}
+                        className="delete-error">
+                        <h3>Incorrect email or password</h3>
                     </div>
                 </div>
             </div>

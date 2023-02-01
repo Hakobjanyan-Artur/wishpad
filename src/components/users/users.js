@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import userImage from '../../images/user.png'
 import { toggleId } from '../../store/slices/userSlices/userSlices'
 
@@ -12,12 +12,11 @@ function Users({ users }) {
     let hour = date.getHours()
     let minutes = date.getMinutes()
 
-
     return (
         <>
             {users?.map((user) => (
                 <div
-                    onClick={() => dispatch(toggleId(user.id))}
+                    onClick={() => dispatch(toggleId(user?.id))}
                     key={user?.id}
                     className="home-users">
                     <div className="user-image">
@@ -30,7 +29,7 @@ function Users({ users }) {
                     </div>
                     <div className='user-home-left'>
                         <h3>{user?.name} {user?.lastname}</h3>
-                        <h5>{user?.sity} {user?.homeland}</h5>
+                        <h5>{user?.city} {user?.homeland}</h5>
                     </div>
                 </div>
             ))}

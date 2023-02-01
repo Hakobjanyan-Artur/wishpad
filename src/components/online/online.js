@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import userImage from '../../images/user.png'
+import { selectUsers } from '../../store/slices/userSlices/userSlices'
 
-function Online({ users }) {
+function Online() {
     const navigate = useNavigate()
     let date = new Date()
     let day = date.getDate().toString()
@@ -9,6 +11,7 @@ function Online({ users }) {
     mounth = mounth.toString()
     let hour = date.getHours()
     let minutes = date.getMinutes()
+    const { users } = useSelector(selectUsers)
 
 
     let onlineUsers = users.filter((user) => user.mounth === mounth && user.day === day && user.hour === hour && user.minutes <= minutes + 5 && user.minutes >= minutes - 5)
@@ -18,7 +21,7 @@ function Online({ users }) {
             {onlineUsers?.map((user) => (
                 <div
 
-                    key={user.id}
+                    key={user?.id}
                     className="online-users">
                     <div className="user-image">
                         <img src={userImage} alt="" />

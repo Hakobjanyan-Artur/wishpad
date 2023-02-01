@@ -1,22 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
-import { toggleUsers } from '../../store/slices/userSlices/userSlices'
+import { selectUsers, toggleUser } from '../../store/slices/userSlices/userSlices'
+const localUser = JSON.parse(localStorage.getItem('localUser')) || null
 
-function SignIn({ users }) {
+function SignIn() {
+    const { users } = useSelector(selectUsers)
     const navigate = useNavigate()
     const formRef = useRef(null)
     const [checkbox, setCheckbox] = useState(false)
     const [error, setError] = useState(false)
     const dispatch = useDispatch()
-    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null
 
     useEffect(() => {
-        if (currentUser) {
+        if (localUser) {
+            dispatch(toggleUser(localUser))
             navigate('main')
         }
-    })
+    }, [localUser])
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -26,12 +29,13 @@ function SignIn({ users }) {
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === email && users[i].password === password && !checkbox) {
                 const user = users[i]
-                dispatch(toggleUsers(user))
+                dispatch(toggleUser(user))
                 navigate('main')
             } else if (users[i].email === email && users[i].password === password && checkbox) {
                 const user = users[i]
-                localStorage.setItem('currentUser', JSON.stringify(user))
+                dispatch(toggleUser(user))
                 navigate('main')
+                localStorage.setItem('localUser', JSON.stringify(user))
             } else {
                 setError(true)
             }
