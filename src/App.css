@@ -825,9 +825,15 @@
   background: rgb(33, 92, 243);
   border: 1px solid rgb(248, 249, 251);
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   cursor: auto;
+}
+.current-user header .location .request-friend .notificate-content .request-title {
+  font-family: "elsie";
+  border-bottom: 1px solid #fff;
 }
 .current-user header .location .request-friend .notificate-content .req-btns {
   width: 50px;
@@ -865,10 +871,13 @@
   align-items: center;
   background: rgb(248, 249, 251);
   padding-left: 5px;
-  cursor: pointer;
   margin: 10px 0;
 }
+.current-user header .location .request-friend .notificate-content .req-user-content .user-info {
+  display: flex;
+}
 .current-user header .location .request-friend .notificate-content .req-user-content .req-cont-image {
+  cursor: pointer;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -1256,7 +1265,7 @@
   gap: 20px;
 }
 .click-by-user header .btns .btn-message,
-.click-by-user header .btns .btm-add-friend {
+.click-by-user header .btns .btn-add-friend {
   width: 130px;
   height: 30px;
   border-radius: 20px;
@@ -1276,7 +1285,7 @@
   gap: 5px;
 }
 .click-by-user header .btns .btn-message:hover,
-.click-by-user header .btns .btm-add-friend:hover {
+.click-by-user header .btns .btn-add-friend:hover {
   background-color: #fff;
   color: rgb(33, 92, 243);
 }
@@ -1295,6 +1304,11 @@
   box-shadow: 0 0 10px #fff;
   font-size: 16px;
   cursor: auto;
+}
+.click-by-user header .btns button .del-friend {
+  transform: translateX(10px);
+  display: inline-block;
+  cursor: pointer;
 }
 .click-by-user section {
   background: rgb(248, 249, 251);

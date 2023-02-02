@@ -6,12 +6,59 @@ import { useSelector } from 'react-redux'
 import { selectUsers } from '../../store/slices/userSlices/userSlices'
 import { useNavigate } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react'
+import { doc, updateDoc } from 'firebase/firestore'
+import { db } from '../firebasaConfig/FirebasaConfig'
+
 
 function CurrentUser() {
     const { user, users } = useSelector(selectUsers)
     const [requestUser, setRequestUser] = useState([])
     const [modalRequest, setModalRequest] = useState(false)
     const navigate = useNavigate()
+
+    const updateUser = async (reqUser) => {
+
+        const userDoc = doc(db, "users", user.id)
+        const newFileds = {
+            friends: [
+                ...user.friends,
+                reqUser
+            ]
+        }
+        await updateDoc(userDoc, newFileds)
+    }
+    const updateRequestUser = async (reqUser) => {
+
+        const userDoc = doc(db, "users", reqUser?.id)
+        const newFileds = {
+            friends: [
+                ...reqUser.friends,
+                user
+            ]
+        }
+        await updateDoc(userDoc, newFileds)
+    }
+
+    const friendReqDel = async (reqUser) => {
+
+        const userDoc = doc(db, "users", user?.id)
+        const newFileds = {
+            friendRequest: user.friendRequest.filter(el => el !== reqUser?.id)
+        }
+        await updateDoc(userDoc, newFileds)
+    }
+
+
+    const accClick = (reqUser) => {
+        updateUser(reqUser)
+        updateRequestUser(reqUser)
+        friendReqDel(reqUser)
+        setModalRequest(!modalRequest)
+    }
+
+    const rejectClick = (reqUser) => {
+        friendReqDel(reqUser)
+    }
 
     const requestUsFunc = () => {
         let reqFriends = []
@@ -31,7 +78,6 @@ function CurrentUser() {
         ])
     }
 
-    console.log(requestUser)
 
     useEffect(() => {
         if (!user) {
@@ -40,7 +86,9 @@ function CurrentUser() {
         if (user?.friendRequest.length > 0) {
             requestUsFunc()
         }
+
     }, [])
+
     return (
         <div
             className="current-user">
@@ -76,21 +124,28 @@ function CurrentUser() {
                                     display: modalRequest ? 'flex' : 'none'
                                 }}
                                 className='notificate-content'>
-                                {requestUser?.map((reqUser) => (
+                                <h4 className='request-title'>Friend Request</h4>
+                                {requestUser.length > 0 ? requestUser?.map((reqUser) => (
                                     <div key={reqUser?.id} className='req-user-content'>
-                                        <div className='req-cont-image'>
+                                        <div
+                                            className='req-cont-image'>
                                             <img src={`https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/avatar%2F${reqUser?.avatar}?alt=media&token=14d679a8-2733-45ec-b62e-3de52bc99025`} alt="" />
                                         </div>
                                         <div className='user-info'>
-                                            <h5>{reqUser?.name} {reqUser?.lastname}</h5>
-                                            <h6>{reqUser?.city} {reqUser?.homeland}</h6>
-                                        </div>
-                                        <div className='req-btns'>
-                                            <button>Acc</button>
-                                            <button>Reject</button>
+                                            <div className='info-content'>
+                                                <h5>{reqUser?.name} {reqUser?.lastname}</h5>
+                                                <h6>{reqUser?.city} {reqUser?.homeland}</h6>
+                                            </div>
+                                            <div className='req-btns'>
+                                                <button onClick={() => accClick(reqUser)} >Acc</button>
+                                                <button onClick={() => rejectClick(reqUser)} >Reject</button>
+                                            </div>
                                         </div>
                                     </div>
-                                ))}
+                                )) : <div className='request-null'><h6>No request</h6></div>
+
+                                }
+
                             </div>
                             <MdCircleNotifications />
                             <div

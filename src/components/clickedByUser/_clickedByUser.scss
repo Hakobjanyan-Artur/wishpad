@@ -42,7 +42,7 @@
             gap: 20px;
 
             .btn-message,
-            .btm-add-friend {
+            .btn-add-friend {
                 @include btn(130px, 30px);
                 box-shadow: 0 0 10px #fff;
                 transition: .4s;
@@ -53,7 +53,7 @@
             }
 
             .btn-message:hover,
-            .btm-add-friend:hover {
+            .btn-add-friend:hover {
                 background-color: #fff;
                 color: $wish-blue;
             }
@@ -63,6 +63,12 @@
                 box-shadow: 0 0 10px #fff;
                 font-size: 16px;
                 cursor: auto;
+
+                .del-friend {
+                    transform: translateX(10px);
+                    display: inline-block;
+                    cursor: pointer;
+                }
             }
         }
     }

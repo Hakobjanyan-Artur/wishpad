@@ -106,9 +106,16 @@
                     background: $wish-blue;
                     border: 1px solid $wish-grey;
                     display: flex;
+                    flex-direction: column;
+                    gap: 10px;
                     justify-content: center;
                     align-items: center;
                     cursor: auto;
+
+                    .request-title {
+                        font-family: 'elsie';
+                        border-bottom: 1px solid #fff;
+                    }
 
                     .req-btns {
                         width: 50px;
@@ -149,10 +156,14 @@
                         align-items: center;
                         background: $wish-grey;
                         padding-left: 5px;
-                        cursor: pointer;
                         margin: 10px 0;
 
+                        .user-info {
+                            display: flex;
+                        }
+
                         .req-cont-image {
+                            cursor: pointer;
                             @include content-image(70px, 70px, $wish-blue)
                         }
 

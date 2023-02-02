@@ -10,6 +10,7 @@ import { IoIosPersonAdd } from 'react-icons/io'
 import { TiMessages } from 'react-icons/ti'
 import { GrStatusGood } from 'react-icons/gr'
 import { GiSandsOfTime } from 'react-icons/gi'
+import { AiOutlineUserDelete } from 'react-icons/ai'
 
 
 function ClickedByUser() {
@@ -18,6 +19,43 @@ function ClickedByUser() {
     const navigate = useNavigate()
     const [friendBtn, setFriendBtn] = useState('add')
 
+    const removeFromFriendClicked = async (clickedUser) => {
+
+        const userDoc = doc(db, "users", clickedUser?.id)
+        const newFileds = {
+            friends: clickedUser.friends.filter(friend => friend.id !== user.id)
+        }
+        await updateDoc(userDoc, newFileds)
+    }
+    const removeFromFriendUser = async (clickedUser) => {
+
+        const userDoc = doc(db, "users", user?.id)
+        const newFileds = {
+            friends: user.friends.filter(friend => friend.id !== clickedUser.id)
+        }
+        await updateDoc(userDoc, newFileds)
+    }
+
+    const removeFromFriend = () => {
+        removeFromFriendClicked(clickedUser)
+        removeFromFriendUser(clickedUser)
+    }
+
+
+    const reqBtnChange = () => {
+        users.filter((filterUser) => {
+            filterUser.friendRequest.filter((el) => {
+                if (el === user.id) {
+                    setFriendBtn('friendRequest')
+                }
+            })
+        })
+        user.friends.map((friend) => {
+            if (friend.id === id) {
+                setFriendBtn('Friend')
+            }
+        })
+    }
 
     useEffect(() => {
 
@@ -28,6 +66,7 @@ function ClickedByUser() {
                 }
             }
         }
+        reqBtnChange()
     }, [])
 
 
@@ -76,7 +115,7 @@ function ClickedByUser() {
                         {
                             friendBtn === 'add' ? <button className="btn-add-friend" onClick={() => addFriends()}> <span className="btn-icon"><IoIosPersonAdd /></span> Add</button> :
                                 friendBtn === 'friendRequest' ? <button> <span className="btn-icon"><GiSandsOfTime /></span> Request Sent</button> :
-                                    <button> <span className="btn-icon"><GrStatusGood /></span> Friend</button>
+                                    <button> <span className="btn-icon"><GrStatusGood /></span> Friend <span onClick={() => removeFromFriend(clickedUser)} title="Remove from friend" className="del-friend"><AiOutlineUserDelete /></span></button>
                         }
                     </div>
                 </div>
