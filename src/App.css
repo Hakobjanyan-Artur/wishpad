@@ -662,29 +662,38 @@
   font-family: "elsie";
   src: url("./fonts/Elsie-Regular.ttf");
 }
-.online-users {
-  width: 100%;
+.online {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+  gap: 10px;
+}
+.online .online-users {
+  height: 100px;
   align-items: center;
   margin-top: 10px;
   display: flex;
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 10px;
   gap: 5px;
   cursor: pointer;
+  justify-content: center;
 }
-.online-users .user-image {
+.online .online-users .user-image {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: rgb(248, 249, 251);
+  background: rgb(33, 92, 243);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.online-users .user-image img {
+.online .online-users .user-image img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
 }
-.online-users .user-image .user-online {
+.online .online-users .user-image .user-online {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -693,17 +702,11 @@
   bottom: 10px;
   right: 0px;
 }
-.online-users .user-home-left {
+.online .online-users .online-left {
   display: flex;
   flex-direction: column;
   gap: 5px;
   font-family: "roboto";
-}
-.online-users .user-home-left h3 {
-  color: rgb(248, 249, 251);
-}
-.online-users .user-home-left h5 {
-  color: rgb(234, 234, 234);
 }
 
 @font-face {
@@ -917,6 +920,35 @@
 }
 .current-user section .section-middle h2 {
   text-align: center;
+}
+.current-user section .section-middle .current-user-friends {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+.current-user section .section-middle .current-user-friends .friend-content {
+  width: 100%;
+  height: 60px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.current-user section .section-middle .current-user-friends .friend-content .fr-cont-left .fr-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current-user section .section-middle .current-user-friends .friend-content .fr-cont-left .fr-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 .current-user section .section-right {
   cursor: pointer;
@@ -1413,6 +1445,53 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 10px;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.friends {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.friends .friends-content {
+  margin-top: 10px;
+  height: 100px;
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  justify-content: center;
+}
+.friends .friends-content .fr-left .fr-images {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.friends .friends-content .fr-left .fr-images img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.friends .friends-content .fr-right {
+  font-family: "roboto";
 }
 
 * {

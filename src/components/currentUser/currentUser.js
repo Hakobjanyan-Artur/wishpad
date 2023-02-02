@@ -189,6 +189,23 @@ function CurrentUser() {
                     onClick={() => navigate('/main/dfriends')}
                     className='section-middle'>
                     <h2>Friends | {user?.friends.length}</h2>
+                    <div className='current-user-friends'>
+                        {user?.friends.map((friend) => (
+                            <div
+                                key={friend?.id}
+                                className='friend-content'>
+                                <div className='fr-cont-left'>
+                                    <div className='fr-image'>
+                                        <img src={`https://firebasestorage.googleapis.com/v0/b/artchat-86d4b.appspot.com/o/avatar%2F${friend?.avatar}?alt=media&token=14d679a8-2733-45ec-b62e-3de52bc99025`} alt="" />
+                                    </div>
+                                </div>
+                                <div className='fr-cont-right'>
+                                    <div className='friend-name'><h4>{friend?.name} {friend?.lastname}</h4></div>
+                                    <div className='friend-country'><h6>{friend?.city} {friend?.homeland}</h6></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <div
                     onClick={() => navigate('/main/dusermedia')}

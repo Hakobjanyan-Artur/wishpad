@@ -204,6 +204,30 @@
             h2 {
                 text-align: center;
             }
+
+            .current-user-friends {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+
+                .friend-content {
+                    width: 100%;
+                    height: 60px;
+                    border: 1px solid grey;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    .fr-cont-left {
+
+                        .fr-image {
+                            @include content-image(60px, 60px, $wish-blue)
+                        }
+                    }
+                }
+            }
         }
 
         .section-right {
