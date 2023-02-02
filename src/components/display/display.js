@@ -16,8 +16,8 @@ function Display({ users, setAvatar, avatar, coverImage, setCoverImage, info, se
                 <Route path="/" index element={<CurrentUser />} />
                 <Route path="/dfriends" index element={<Friends />} />
                 <Route path="/dmessenger" element={<Messenger />} />
-                <Route path="/donline" element={<Online users={users} />} />
-                <Route path="/dsearch" element={<Search users={users} />} />
+                <Route path="/donline" element={<Online />} />
+                <Route path="/dsearch" element={<Search />} />
                 <Route path="/dclickedByUser" element={<ClickedByUser users={users} />} />
                 <Route path="/dclickedUserMedia" element={<ClickedUserMedia users={users} />} />
                 <Route path="/dusermedia" element={<UserMedia info={info} setInfo={setInfo} addimg={addimg} setAddImg={setAddImg} />} />

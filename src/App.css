@@ -1494,6 +1494,53 @@
   font-family: "roboto";
 }
 
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "clash";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: "elsie";
+  src: url("./fonts/Elsie-Regular.ttf");
+}
+.search {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+  gap: 10px;
+}
+.search .search-content {
+  height: 100px;
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.search .search-content .search-left .search-images {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(33, 92, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search .search-content .search-left .search-images img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.search .search-content .search-right {
+  font-family: "roboto";
+}
+
 * {
   margin: 0;
   padding: 0;

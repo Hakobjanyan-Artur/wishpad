@@ -8,9 +8,11 @@ import Display from "../display/display";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebasaConfig/FirebasaConfig";
 import Users from "../users/users";
+import { selectSearch, toggleSearch } from "../../store/slices/searchUsers/searchUsers";
 
 function Main({ users }) {
     const { user } = useSelector(selectUsers)
+    const selectTxt = useSelector(selectSearch)
     const navigate = useNavigate()
     const leftRef = useRef(null)
     const middleRef = useRef(null)
@@ -77,6 +79,8 @@ function Main({ users }) {
                                     <BiSearchAlt2 />
                                 </span>
                                 <input
+                                    onChange={(e) => dispatch(toggleSearch(e.target.value))}
+                                    value={selectTxt}
                                     onFocus={() => navigate('/main/dsearch')}
                                     placeholder="Search users..."
                                     type="text" />
